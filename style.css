@@ -1,0 +1,91 @@
+/* Style global */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f5f5f5;
+    color: #222;
+}
+
+.header {
+    background: #222;
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header nav a {
+    color: white;
+    margin-left: 20px;
+    text-decoration: none;
+}
+
+.section {
+    padding: 40px;
+    text-align: center;
+}
+
+.upload-box {
+    display: inline-block;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.upload-area {
+    padding: 20px;
+    border: 2px dashed #333;
+    background: white;
+    display: inline-block;
+}
+
+/* --- Animation des templates CV --- */
+
+.cv-animation-container {
+    width: 100%;
+    max-width: 420px;
+    margin: 20px auto;
+    padding: 10px;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+    overflow: hidden;
+}
+
+.cv-slider {
+    display: flex;
+    width: 300%;
+    animation: slideCV 18s infinite ease-in-out;
+}
+
+.cv-slider img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    padding: 8px;
+}
+
+.cv-legend {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #555;
+    margin-top: 10px;
+}
+
+@keyframes slideCV {
+    0%   { transform: translateX(0%); }
+    27%  { transform: translateX(0%); }
+
+    33%  { transform: translateX(-100%); }
+    60%  { transform: translateX(-100%); }
+
+    66%  { transform: translateX(-200%); }
+    93%  { transform: translateX(-200%); }
+
+    100% { transform: translateX(0%); }
+}
+
+.cv-animation-container:hover .cv-slider {
+    animation-play-state: paused;
+}
