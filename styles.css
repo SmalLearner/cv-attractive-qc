@@ -45,6 +45,7 @@ body {
 .cv-animation-container {
     width: 100%;
     max-width: 420px;
+    height: 450px; /* ← petite hauteur */
     margin: 20px auto;
     padding: 10px;
     background: #ffffff;
@@ -87,4 +88,5 @@ body {
     animation-play-state: paused;
 
 }
+
 
