@@ -75,17 +75,15 @@ body {
 
 @keyframes slideCV {
     0%   { transform: translateX(0%); }
-    27%  { transform: translateX(0%); }
+    45%  { transform: translateX(0%); }
 
-    33%  { transform: translateX(-100%); }
-    60%  { transform: translateX(-100%); }
-
-    66%  { transform: translateX(-200%); }
-    93%  { transform: translateX(-200%); }
+    50%  { transform: translateX(-100%); }
+    95%  { transform: translateX(-100%); }
 
     100% { transform: translateX(0%); }
 }
 
 .cv-animation-container:hover .cv-slider {
     animation-play-state: paused;
+
 }
