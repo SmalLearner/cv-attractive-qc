@@ -56,7 +56,7 @@ body {
 .cv-slider {
     display: flex;
     width: 300%;
-    animation: slideCV 18s infinite ease-in-out;
+    animation: slideCV 5s infinite ease-in-out;
 }
 
 .cv-slider img {
@@ -87,3 +87,4 @@ body {
     animation-play-state: paused;
 
 }
+
