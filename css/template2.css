@@ -1,0 +1,74 @@
+.cv-container {
+    width: 900px;
+    margin: 40px auto;
+    display: grid;
+    grid-template-columns: 30% 70%;
+    gap: 30px;
+    font-family: Arial, sans-serif;
+    color: #222;
+}
+
+.left-column {
+    border-right: 2px solid #ddd;
+    padding-right: 20px;
+}
+
+.name {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.job-title {
+    font-size: 16px;
+    color: #444;
+    margin-bottom: 30px;
+}
+
+.section-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #0e4c32;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.contact-info,
+.skills {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.contact-info li,
+.skills li {
+    margin-bottom: 8px;
+}
+
+.profile-text {
+    line-height: 1.5;
+}
+
+.right-column {
+    padding-left: 10px;
+}
+
+.experience-item {
+    display: grid;
+    grid-template-columns: 25% 75%;
+    margin-bottom: 20px;
+}
+
+.exp-date {
+    font-weight: bold;
+    color: #555;
+}
+
+.exp-content ul {
+    margin: 5px 0 10px 20px;
+}
+
+.education-item {
+    margin-bottom: 20px;
+}
