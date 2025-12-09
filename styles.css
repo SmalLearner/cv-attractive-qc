@@ -1,103 +1,15 @@
-/* Style global */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #f5f5f5;
-    color: #222;
-}
-
-.header {
-    background: #222;
-    color: white;
-    padding: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.header nav a {
-    color: white;
-    margin-left: 20px;
-    text-decoration: none;
-}
-
-.section {
-    padding: 40px;
-    text-align: center;
-}
-
-.upload-box {
-    display: inline-block;
-    margin-top: 20px;
-    cursor: pointer;
-}
-
-.upload-area {
-    padding: 20px;
-    border: 2px dashed #333;
-    background: white;
-    display: inline-block;
-}
-
-/* --- Animation des templates CV --- */
-
-.cv-animation-container {
-    width: 100%;
-    max-width: 420px;
-    height: 450px; /* ← petite hauteur */
-    margin: 20px auto;
-    padding: 10px;
-    background: #ffffff;
-    border-radius: 16px;
-    box-shadow: 0 12px 35px rgba(0,0,0,0.15);
-    overflow: hidden;
-}
-
-.cv-slider {
-    display: flex;
-    width: 300%;
-    animation: slideCV 5s infinite ease-in-out;
-}
-
-.cv-slider img {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    padding: 8px;
-}
-
-.cv-legend {
-    text-align: center;
-    font-size: 0.9rem;
-    color: #555;
-    margin-top: 10px;
-}
-
-@keyframes slideCV {
-    0%   { transform: translateX(0%); }
-    45%  { transform: translateX(0%); }
-
-    50%  { transform: translateX(-100%); }
-    95%  { transform: translateX(-100%); }
-
-    100% { transform: translateX(0%); }
-}
-
-.cv-animation-container:hover .cv-slider {
-    animation-play-state: paused;
-
-}
-
+/* SECTION SPLIT (1/3 - 2/3) */
 .hero-split {
     display: flex;
-    height: 100vh; /* occupe toute la hauteur de l'écran */
+    height: 400px; 
+    width: 100%;
+    margin-top: 80px;
 }
 
-/* Partie gauche -> 1/3 */
+/* GAUCHE : 1/3 en vert foncé */
 .left-part {
-    width: 33.33%;
-    background: #064e3b; /* vert foncé */
+    flex: 1; /* 1 partie */
+    background-color: #1f4a33; /* vert foncé */
     color: white;
     padding: 40px;
     display: flex;
@@ -105,29 +17,32 @@ body {
     justify-content: center;
 }
 
-/* Partie droite -> 2/3 */
+/* DROITE : 2/3 en blanc */
 .right-part {
-    width: 66.66%;
-    background: #ffffff;
-    color: #111;
+    flex: 2; /* 2 parties */
+    background-color: #ffffff;
     padding: 40px;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-/* Responsive pour mobile */
-@media(max-width: 800px) {
+/* TITRES */
+.left-part h1, .right-part h2 {
+    margin-bottom: 15px;
+}
+
+/* RESPONSIVE MOBILE */
+@media (max-width: 900px) {
     .hero-split {
         flex-direction: column;
         height: auto;
     }
 
-    .left-part,
-    .right-part {
+    .left-part, .right-part {
+        flex: none;
         width: 100%;
         height: auto;
+        padding: 30px;
     }
 }
-
-
