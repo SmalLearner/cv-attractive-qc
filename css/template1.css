@@ -1,0 +1,35 @@
+.cv-container {
+    width: 750px;
+    margin: 40px auto;
+    padding: 40px;
+    background: white;
+    font-family: Arial, sans-serif;
+    color: #222;
+}
+
+.cv-name {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.cv-info {
+    color: #444;
+    margin-bottom: 25px;
+}
+
+.cv-section {
+    margin-top: 25px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #1f4a33;
+}
+
+.cv-job {
+    margin-top: 15px;
+}
+
+ul {
+    margin-left: 20px;
+    line-height: 1.6;
+}
