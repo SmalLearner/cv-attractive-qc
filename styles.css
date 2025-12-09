@@ -152,8 +152,19 @@ textarea {
     font-size: 14px;
 }
 
+#templates a {
+    display: block;
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #1f4a33;
+    text-decoration: underline;
+}
+
 @media (max-width: 900px) {
     .hero-split {
         flex-direction: column;
     }
 }
+
+
