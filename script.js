@@ -1,17 +1,17 @@
-// Analyse de CV (logique à ajouter plus tard)
-document.getElementById("cvFile").addEventListener("change", function(){
-    document.getElementById("result").innerHTML = "Analyse en cours...";
-});
+// Upload CV
+document.querySelector(".upload-area").onclick = () => {
+    document.getElementById("cvFile").click();
+};
 
-// Analyse du profil textuel
-document.getElementById("analyserProfil").addEventListener("click", function(){
-    const profil = document.getElementById("profil").value;
-    
-    if(profil.trim() === ""){
-        document.getElementById("profilResult").innerHTML = "Merci d’écrire un profil.";
+// Profil IA
+document.getElementById("analyserProfil").onclick = () => {
+    let text = document.getElementById("profil").value;
+
+    if (text.length < 10) {
+        document.getElementById("profilResult").innerHTML = "Merci de décrire ton profil.";
         return;
     }
 
-    document.getElementById("profilResult").innerHTML = 
-        "Analyse IA : Ton profil démontre de bonnes compétences. (Version simplifiée)";
-});
+    document.getElementById("profilResult").innerHTML =
+        "<p><strong>Analyse IA :</strong> Ton profil présente un fort potentiel pour un emploi administratif ou en service client.</p>";
+};
