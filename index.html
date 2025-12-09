@@ -1,73 +1,11 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Évaluateur & Générateur de CV - IA</title>
-<link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-
-<header class="header">
-    <h1>IA CV Expert</h1>
-    <nav>
-        <a href="#upload">Évaluer mon CV</a>
-        <a href="#templates">Templates</a>
-        <a href="#conseils">Conseils</a>
-    </nav>
-</header>
 <section class="hero-split">
     <div class="left-part">
-        <h1>Ton texte ici</h1>
-        <p>Partie 1/3 en vert foncé</p>
+        <h1>Crée ton CV avec IA</h1>
+        <p>Partie 1/3 — zone d’accroche en vert foncé.</p>
     </div>
 
     <div class="right-part">
-        <h2>Deuxième section</h2>
-        <p>Partie 2/3 en blanc</p>
+        <h2>Templates modernes</h2>
+        <p>Partie 2/3 — zone blanche avec animation.</p>
     </div>
 </section>
-    
-<section id="upload" class="section">
-    <h2>Évalue ton CV automatiquement</h2>
-    <p>Dépose ton CV (PDF ou image). L'IA analyse la structure, le contenu et te donne un score + recommandations.</p>
-
-    <label class="upload-box">
-        <input type="file" id="cvFile" accept="application/pdf,image/*" hidden />
-        <div class="upload-area">Clique ici pour charger ton CV</div>
-    </label>
-
-    <div id="result"></div>
-</section>
-
-<!-- SECTION ANIMATION TEMPLATES -->
-<section id="templates" class="section">
-    <h2>Templates de CV</h2>
-
-    <div class="cv-animation-container">
-        <div class="cv-slider">
-            <img src="nathan-cv1.png" alt="CV Nathan Bouchard 1">
-            <img src="nathan-cv3.png" alt="CV Nathan Bouchard 3">
-        </div>
-    </div>
-
-    <p class="cv-legend">
-        3 modèles de CV québécois pour Nathan Bouchard, animés automatiquement.
-    </p>
-</section>
-
-<section id="conseils" class="section">
-    <h2>Conseils personnalisés</h2>
-    <p>Tu veux savoir quel poste correspond le mieux à ton profil ? L’IA te donne une orientation claire.</p>
-
-    <textarea id="profil" placeholder="Décris ton profil..."></textarea>
-    <button id="analyserProfil">Analyser</button>
-
-    <div id="profilResult"></div>
-</section>
-
-<script src="script.js"></script>
-</body>
-
-</html>
-
