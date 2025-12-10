@@ -266,11 +266,43 @@ textarea {
     background: #1f4a33;
 }
 
+/* --- FLECHES DU SLIDER HERO --- */
+.hero-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.45);
+    border: none;
+    color: white;
+    font-size: 32px;
+    padding: 10px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.hero-arrow:hover {
+    background: rgba(0,0,0,0.65);
+}
+
+.hero-left-arrow {
+    left: 10px;
+}
+
+.hero-right-arrow {
+    right: 10px;
+}
+
+.hero-slider-container {
+    position: relative; /* IMPORTANT pour les flèches */
+}
+
 @media (max-width: 900px) {
     .hero-split {
         flex-direction: column;
     }
 }
+
 
 
 
