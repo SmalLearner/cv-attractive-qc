@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Connexion | IA CV Expert</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f7f4;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 420px;
+            margin: 80px auto;
+            padding: 40px;
+            background: #ffffff;
+            border-radius: 14px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #0b3d2e;
+            margin-bottom: 30px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 18px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 15px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #0b3d2e;
+            border: none;
+            border-radius: 8px;
+            font-size: 17px;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        .message {
+            text-align: center;
+            margin-top: 15px;
+            color: #d9534f;
+            font-size: 14px;
+        }
+
+        .link {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .link a {
+            color: #0b3d2e;
+            font-weight: 600;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Connexion</h2>
+
+    <input id="email" type="email" placeholder="Adresse email">
+    <input id="password" type="password" placeholder="Mot de passe">
+
+    <button onclick="login()">Se connecter</button>
+
+    <p id="message" class="message"></p>
+
+    <div class="link">
+        <a href="signup.html">Créer un compte</a>
+    </div>
+</div>
+
+<script>
+    const supabase = supabase.createClient(
+        "https://dwglkvlhkfxnxaykibok.supabase.co",
+        "PUBLIC_ANON_KEY"
+    );
+
+    async function login() {
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+
+        const { data, error } = await supabase.auth.signInWithPassword({
+            email,
+            password
+        });
+
+        if (error) {
+            document.getElementById("message").textContent =
+                "Erreur : " + error.message;
+            return;
+        }
+
+        // Redirection une fois connecté
+        window.location.href = "dashboard.html";
+    }
+</script>
+
+</body>
+</html>
