@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Connexion | IA CV Expert</title>
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
     <style>
         body {
             margin: 0;
@@ -89,17 +90,19 @@
     </div>
 </div>
 
+<!-- ====================== SCRIPT CORRIGÉ ====================== -->
 <script>
-    const supabase = supabase.createClient(
+    // 💡 IMPORTANT : utiliser un nom différent comme supabaseClient
+    const supabaseClient = supabase.createClient(
         "https://dwglkvlhkfxnxaykibok.supabase.co",
-        "sb_publishable_If-9PzCJImCraAsv2me2Uw_fAFL4rB-"
+        "sb_publishable_If-9PzCJImCraAsv2me2Uw_fAFL4rB-" 
     );
 
     async function login() {
         const email = document.getElementById("email").value;
         const password = document.getElementById("password").value;
 
-        const { data, error } = await supabase.auth.signInWithPassword({
+        const { data, error } = await supabaseClient.auth.signInWithPassword({
             email,
             password
         });
