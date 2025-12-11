@@ -99,22 +99,19 @@
 <script>
     const supabaseClient = supabase.createClient(
         "https://dwglkvlhkfxnxaykibok.supabase.co",
-        "PUBLIC_ANON_KEY"
+        "sb_publishable_If-9PzCJImCraAsv2me2Uw_fAFL4rB-"
     );
 
-    // Protection de la page : seulement pour utilisateurs connectés
-    async function checkUser() {
-        const { data: { user } } = await supabaseClient.auth.getUser();
+    async function selectTemplate(id) {
+        const { data } = await supabaseClient.auth.getSession();
 
-        if (!user) {
+        // S'il n'est pas connecté → on l'envoie se connecter
+        if (!data.session) {
             window.location.href = "login.html";
+            return;
         }
-    }
 
-    checkUser();
-
-    function selectTemplate(id) {
-        // Redirection vers la création du CV avec le template choisi
+        // S'il est connecté → il va vers la page creation
         window.location.href = "creation.html?template=" + id;
     }
 </script>
