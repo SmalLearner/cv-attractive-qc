@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Créer un compte</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f5f3;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .signup-container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            width: 350px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #1f4a33;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #1f4a33;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #163927;
+        }
+
+        .message {
+            margin-top: 15px;
+            text-align: center;
+            font-size: 14px;
+            color: red;
+        }
+
+        .success {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+
+<div class="signup-container">
+    <h2>Créer un compte</h2>
+
+    <input type="email" id="email" placeholder="Adresse email">
+    <input type="password" id="password" placeholder="Mot de passe">
+    <input type="password" id="confirm" placeholder="Confirmer le mot de passe">
+
+    <button onclick="signup()">Créer mon compte</button>
+
+    <div class="message" id="message"></div>
+</div>
+
+
+<!-- SUPABASE -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+    const SUPABASE_URL = "https://dwglkvlhkfxnxaykibok.supabase.co";
+    const SUPABASE_ANON_KEY = "sb_publishable_If-9PzCJImCraAsv2me2Uw_fAFL4rB-";
+    const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    async function signup() {
+        let email = document.getElementById("email").value;
+        let password = document.getElementById("password").value;
+        let confirm = document.getElementById("confirm").value;
+        let msg = document.getElementById("message");
+
+        if (password !== confirm) {
+            msg.innerHTML = "Les mots de passe ne correspondent pas.";
+            return;
+        }
+
+        const { data, error } = await supabaseClient.auth.signUp({
+            email: email,
+            password: password,
+        });
+
+        if (error) {
+            msg.innerHTML = error.message;
+        } else {
+            msg.innerHTML = "Compte créé ! Vérifiez votre email.";
+            msg.classList.add("success");
+        }
+    }
+</script>
+
+</body>
+</html>
