@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Création de CV | IA CV Expert</title>
+
+    <style>
+        body {
+            margin: 0; padding: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f7f4;
+            display: flex;
+            gap: 30px;
+            padding: 30px;
+        }
+
+        .form-container {
+            width: 40%;
+            background: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .preview-container {
+            width: 60%;
+            background: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #0b3d2e;
+            border: none;
+            border-radius: 8px;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover { opacity: 0.9; }
+    </style>
+</head>
+
+<body>
+
+<div class="form-container">
+    <h2>Informations du CV</h2>
+
+    <label>Nom complet :</label>
+    <input type="text" id="name">
+
+    <label>Titre professionnel :</label>
+    <input type="text" id="title">
+
+    <label>Profil professionnel :</label>
+    <textarea id="profile"></textarea>
+
+    <label>Compétences :</label>
+    <textarea id="skills"></textarea>
+
+    <label>Expérience professionnelle :</label>
+    <textarea id="experience"></textarea>
+
+    <label>Éducation :</label>
+    <textarea id="education"></textarea>
+
+    <button onclick="updatePreview()">Mettre à jour le CV</button>
+</div>
+
+
+<div class="preview-container">
+    <h2>Aperçu du CV</h2>
+
+    <div id="cvPreview">
+        <p>Le CV apparaîtra ici…</p>
+    </div>
+
+    <button onclick="saveCV()">Enregistrer mon CV</button>
+</div>
+
+
+<script>
+    // Récupération du template dans l’URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const templateId = urlParams.get("template");
+
+    console.log("Template choisi :", templateId);
+
+    // Mettre à jour l’aperçu
+    function updatePreview() {
+        const name = document.getElementById("name").value;
+        const title = document.getElementById("title").value;
+        const profile = document.getElementById("profile").value;
+        const skills = document.getElementById("skills").value;
+        const experience = document.getElementById("experience").value;
+        const education = document.getElementById("education").value;
+
+        document.getElementById("cvPreview").innerHTML = `
+            <h2>${name || "Nom complet"}</h2>
+            <h3>${title || "Titre professionnel"}</h3>
+            <p><strong>Profil :</strong> ${profile}</p>
+            <p><strong>Compétences :</strong><br>${skills.replace(/\n/g,"<br>")}</p>
+            <p><strong>Expérience :</strong><br>${experience.replace(/\n/g,"<br>")}</p>
+            <p><strong>Éducation :</strong><br>${education.replace(/\n/g,"<br>")}</p>
+        `;
+    }
+
+    function saveCV() {
+        alert("Fonction de sauvegarde à venir (Supabase + PDF) !");
+    }
+</script>
+
+</body>
+</html>
