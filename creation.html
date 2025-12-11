@@ -7,36 +7,56 @@
 
     <style>
         body {
-            margin: 0; padding: 0;
+            margin: 0;
+            padding: 30px;
             font-family: Arial, sans-serif;
             background: #f4f7f4;
             display: flex;
             gap: 30px;
-            padding: 30px;
+            box-sizing: border-box;
+        }
+
+        .form-container, .preview-container {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.12);
         }
 
         .form-container {
             width: 40%;
-            background: #fff;
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            max-width: 520px;
         }
 
         .preview-container {
             width: 60%;
-            background: #fff;
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            margin-top: 0;
+            color: #0b3d2e;
+        }
+
+        label {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 4px;
+            display: block;
         }
 
         input, textarea {
             width: 100%;
-            padding: 12px;
-            margin-bottom: 12px;
-            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 14px;
             border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            min-height: 70px;
+            resize: vertical;
         }
 
         button {
@@ -48,10 +68,78 @@
             color: #fff;
             font-size: 16px;
             cursor: pointer;
-            margin-top: 10px;
+            margin-top: 6px;
         }
 
-        button:hover { opacity: 0.9; }
+        button:hover {
+            opacity: 0.92;
+        }
+
+        /* Style de l’aperçu du CV (format A4) */
+        #cvPreviewWrapper {
+            background: #e3e7e6;
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        #cvPreview {
+            width: 210mm;
+            min-height: 297mm;
+            background: #ffffff;
+            margin: 0 auto;
+            padding: 25mm 22mm;
+            box-sizing: border-box;
+            color: #222;
+            font-size: 13px;
+            font-family: Arial, sans-serif;
+        }
+
+        .cv-header-name {
+            font-size: 26px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .cv-header-title {
+            font-size: 14px;
+            color: #0b3d2e;
+            margin-bottom: 12px;
+        }
+
+        .cv-section-title {
+            margin-top: 14px;
+            margin-bottom: 6px;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #0b3d2e;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 4px;
+        }
+
+        .cv-contact-line {
+            font-size: 12px;
+            color: #555;
+        }
+
+        .cv-columns {
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            gap: 18px;
+            margin-top: 12px;
+        }
+
+        .cv-block p {
+            margin: 0 0 6px 0;
+            line-height: 1.4;
+        }
+
+        .small-note {
+            font-size: 12px;
+            text-align: center;
+            margin-top: 8px;
+            color: #555;
+        }
     </style>
 </head>
 
@@ -61,22 +149,34 @@
     <h2>Informations du CV</h2>
 
     <label>Nom complet :</label>
-    <input type="text" id="name">
+    <input type="text" id="name" placeholder="Ex : Diene Ndiaye">
 
     <label>Titre professionnel :</label>
-    <input type="text" id="title">
+    <input type="text" id="title" placeholder="Ex : Data scientist">
+
+    <label>Email :</label>
+    <input type="email" id="email" placeholder="exemple@email.com">
+
+    <label>Téléphone :</label>
+    <input type="text" id="phone" placeholder="+1 514-000-0000">
+
+    <label>Ville / Région :</label>
+    <input type="text" id="location" placeholder="Montréal, QC">
 
     <label>Profil professionnel :</label>
-    <textarea id="profile"></textarea>
+    <textarea id="profile" placeholder="Résumé de ton profil, 3–4 lignes."></textarea>
 
-    <label>Compétences :</label>
-    <textarea id="skills"></textarea>
+    <label>Compétences (une par ligne) :</label>
+    <textarea id="skills" placeholder="Python&#10;Machine learning&#10;SQL"></textarea>
 
     <label>Expérience professionnelle :</label>
-    <textarea id="experience"></textarea>
+    <textarea id="experience" placeholder="2022–2024 : Poste, Entreprise – Missions principales..."></textarea>
 
     <label>Éducation :</label>
-    <textarea id="education"></textarea>
+    <textarea id="education" placeholder="2020–2022 : Maîtrise IA, UQTR..."></textarea>
+
+    <label>Langues :</label>
+    <textarea id="languages" placeholder="Français (C1)&#10;Anglais (B2)"></textarea>
 
     <button onclick="updatePreview()">Mettre à jour le CV</button>
 </div>
@@ -85,42 +185,106 @@
 <div class="preview-container">
     <h2>Aperçu du CV</h2>
 
-    <div id="cvPreview">
-        <p>Le CV apparaîtra ici…</p>
+    <div id="cvPreviewWrapper">
+        <div id="cvPreview">
+            <!-- Contenu généré par JS -->
+            <p>Remplis le formulaire à gauche puis clique sur <strong>Mettre à jour le CV</strong>.</p>
+        </div>
     </div>
 
-    <button onclick="saveCV()">Enregistrer mon CV</button>
+    <button onclick="downloadPDF()">Télécharger en PDF</button>
+    <p class="small-note">Le PDF sera généré à partir de cet aperçu (format A4).</p>
 </div>
 
+<!-- Librairies pour export PDF -->
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
 
 <script>
-    // Récupération du template dans l’URL
+    // On récupère éventuellement le template dans l’URL (pour plus tard, styles différents)
     const urlParams = new URLSearchParams(window.location.search);
-    const templateId = urlParams.get("template");
+    const templateId = urlParams.get("template") || "1";
 
-    console.log("Template choisi :", templateId);
+    function nl2br(text) {
+        return text ? text.replace(/\n/g, "<br>") : "";
+    }
 
-    // Mettre à jour l’aperçu
+    function listFromLines(text) {
+        if (!text) return "";
+        return text
+            .split("\n")
+            .filter(l => l.trim() !== "")
+            .map(l => "<li>" + l.trim() + "</li>")
+            .join("");
+    }
+
     function updatePreview() {
-        const name = document.getElementById("name").value;
-        const title = document.getElementById("title").value;
+        const name = document.getElementById("name").value || "Nom COMPLET";
+        const title = document.getElementById("title").value || "Titre professionnel";
+        const email = document.getElementById("email").value || "email@example.com";
+        const phone = document.getElementById("phone").value || "+1 000-000-0000";
+        const location = document.getElementById("location").value || "Ville, Région";
+
         const profile = document.getElementById("profile").value;
         const skills = document.getElementById("skills").value;
         const experience = document.getElementById("experience").value;
         const education = document.getElementById("education").value;
+        const languages = document.getElementById("languages").value;
 
         document.getElementById("cvPreview").innerHTML = `
-            <h2>${name || "Nom complet"}</h2>
-            <h3>${title || "Titre professionnel"}</h3>
-            <p><strong>Profil :</strong> ${profile}</p>
-            <p><strong>Compétences :</strong><br>${skills.replace(/\n/g,"<br>")}</p>
-            <p><strong>Expérience :</strong><br>${experience.replace(/\n/g,"<br>")}</p>
-            <p><strong>Éducation :</strong><br>${education.replace(/\n/g,"<br>")}</p>
+            <div class="cv-header">
+                <div class="cv-header-name">${name}</div>
+                <div class="cv-header-title">${title}</div>
+                <div class="cv-contact-line">
+                    ${email} &nbsp; | &nbsp; ${phone} &nbsp; | &nbsp; ${location}
+                </div>
+            </div>
+
+            <div class="cv-columns">
+                <div class="cv-block">
+                    <div class="cv-section-title">Profil</div>
+                    <p>${nl2br(profile)}</p>
+
+                    <div class="cv-section-title">Expérience professionnelle</div>
+                    <p>${nl2br(experience)}</p>
+
+                    <div class="cv-section-title">Éducation</div>
+                    <p>${nl2br(education)}</p>
+                </div>
+
+                <div class="cv-block">
+                    <div class="cv-section-title">Compétences</div>
+                    <ul>${listFromLines(skills)}</ul>
+
+                    <div class="cv-section-title">Langues</div>
+                    <ul>${listFromLines(languages)}</ul>
+                </div>
+            </div>
         `;
     }
 
-    function saveCV() {
-        alert("Fonction de sauvegarde à venir (Supabase + PDF) !");
+    async function downloadPDF() {
+        const { jsPDF } = window.jspdf;
+
+        const cvElement = document.getElementById("cvPreview");
+
+        // Capture l’aperçu en image
+        const canvas = await html2canvas(cvElement, { scale: 2 });
+        const imgData = canvas.toDataURL("image/png");
+
+        // Création PDF format A4
+        const pdf = new jsPDF("p", "mm", "a4");
+        const pageWidth = pdf.internal.pageSize.getWidth();
+        const pageHeight = pdf.internal.pageSize.getHeight();
+
+        const imgWidth = pageWidth;
+        const imgHeight = canvas.height * imgWidth / canvas.width;
+
+        let position = 0;
+        pdf.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight);
+
+        // Si le contenu dépasse, on pourrait gérer plusieurs pages plus tard
+        pdf.save("cv.pdf");
     }
 </script>
 
