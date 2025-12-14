@@ -2,205 +2,118 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>IA CV Expert</title>
-
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            background: #f4f7f4;
-        }
-
-        /* ---------------- NAVBAR ---------------- */
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 25px 60px;
-            background: white;
-            box-shadow: 0 4px 14px rgba(0,0,0,0.06);
-        }
-
-        .logo {
-            font-size: 22px;
-            font-weight: bold;
-            color: #0b3d2e;
-        }
-
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 30px;
-            align-items: center;
-        }
-
-        .nav-links li a {
-            text-decoration: none;
-            color: #0b3d2e;
-            font-size: 17px;
-            font-weight: 500;
-        }
-
-        .btn-outline {
-            padding: 10px 22px;
-            border: 2px solid #0b3d2e;
-            border-radius: 8px;
-            font-weight: 600;
-        }
-
-        .btn-solid {
-            background: #0b3d2e;
-            color: white !important;
-            padding: 10px 22px;
-            border-radius: 8px;
-            font-weight: 600;
-        }
-
-        /* ---------------- HERO SECTIONS ---------------- */
-        .hero {
-            display: grid;
-            grid-template-columns: 33% 34% 33%;
-            min-height: 700px;
-            position: relative;
-        }
-
-        /* LEFT SECTION (1/3) */
-        .hero-left {
-            background: #0b3d2e;
-            color: white;
-            padding: 100px 40px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .hero-left h1 {
-            font-size: 42px;
-            line-height: 1.2;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-
-        /* CENTER SECTION (stars + text) */
-        .hero-middle {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding: 40px;
-        }
-
-        .star-line {
-            display: flex;
-            align-items: center;
-            font-size: 18px;
-            margin: 15px 0;
-            color: #000000;
-            font-weight: 500;
-        }
-
-        .star {
-            font-size: 22px;
-            color: #f5c518;
-            margin-right: 12px;
-        }
-
-        .separator {
-            width: 100%;
-            height: 1px;
-            background: #dddddd;
-            margin: 10px 0 20px 0;
-        }
-
-        /* RIGHT SECTION (animation) */
-        .hero-right {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 60px;
-        }
-
-        .frame {
-            width: 380px;
-            height: 430px;
-            background: white;
-            border-radius: 18px;
-            box-shadow: 0 14px 40px rgba(0,0,0,0.12);
-            overflow: hidden;
-        }
-
-        .frame img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* RESPONSIVE */
-        @media(max-width: 1000px) {
-            .hero {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            .hero-middle {
-                order: 3;
-            }
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Expert IA - Création & Évaluation</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 
 <body>
 
-    <!-- ---------------- NAVBAR ---------------- -->
-    <nav class="navbar">
-        <div class="logo">IA CV Expert</div>
+    <!-- HEADER -->
+    <header class="header">
+        <h1 class="logo">IA CV Expert</h1>
+        <nav class="nav">
+            <a href="#upload">Évaluer mon CV</a>
+            <a href="#templates">Templates</a>
+            <a href="#conseils">Conseils</a>
+            <a href="login.html" class="btn-login">Connexion</a>
+            <a href="signup.html" class="btn-signup">Créer un compte</a>
+        </nav>
+    </header>
 
-        <ul class="nav-links">
-            <li><a href="templates.html">Templates</a></li>
-            <li><a href="login.html" class="btn-outline">Connexion</a></li>
-            <li><a href="signup.html" class="btn-solid">Créer un compte</a></li>
-        </ul>
-    </nav>
-
-
-    <!-- ---------------- HERO ---------------- -->
-    <section class="hero">
-
-        <!-- LEFT 1/3 -->
+    <!-- SECTION 1 — HERO 1/3 – 2/3 -->
+    <section class="hero-modern">
         <div class="hero-left">
-            <h1>Crée un CV professionnel<br>en quelques secondes</h1>
+            <h1>Crée un CV professionnel en quelques secondes</h1>
+            <p class="hero-subtext">
+                Générateur de CV intelligent adapté au marché québécois. Simple, rapide et efficace.
+            </p>
+    
+            <a href="#templates" class="hero-button">Voir les modèles</a>
+            <a href="#upload" class="hero-button-outline">Évaluer mon CV</a>
         </div>
-
-        <!-- MIDDLE : stars -->
-        <div class="hero-middle">
-            
-            <div class="star-line">
-                <span class="star">⭐</span>
-                Générateur de CV intelligent adapté au marché québécois.
-            </div>
-            <div class="separator"></div>
-
-            <div class="star-line">
-                <span class="star">⭐</span>
-                Simple, rapide et efficace.
-            </div>
-            <div class="separator"></div>
-
-            <div class="star-line">
-                <span class="star">⭐</span>
-                Optimisé pour décrocher plus d’entrevues.
-            </div>
-
-        </div>
-
-        <!-- RIGHT 2/3 (Animation placeholder) -->
+    
         <div class="hero-right">
-            <div class="frame">
-                <img src="images/template1.png" alt="Animation placeholder">
-            </div>
-        </div>
 
+            <div class="hero-slider-container">
+                <div class="hero-slider">
+        
+                    <a href="templates/template1.html" class="hero-slide-link">
+                        <img src="nathan-cv1.png" class="hero-slide">
+                    </a>
+        
+                    <a href="templates/template2.html" class="hero-slide-link">
+                        <img src="nathan-cv2.png" class="hero-slide">
+                    </a>
+        
+                    <a href="templates/template3.html" class="hero-slide-link">
+                        <img src="nathan-cv3.png" class="hero-slide">
+                    </a>
+        
+                </div>
+            </div>
+        
+            <div class="hero-dots">
+                <span class="hero-dot active"></span>
+                <span class="hero-dot"></span>
+                <span class="hero-dot"></span>
+            </div>
+        
+        </div>
     </section>
 
+    <!-- SECTION 2 — UPLOAD CV -->
+    <section id="upload" class="section">
+        <h2>Évalue ton CV automatiquement</h2>
+        <p>Dépose ton CV. L’IA analyse la structure, le contenu et te donne un score + recommandations.</p>
+
+        <label class="upload-box">
+            <input type="file" id="cvFile" accept="application/pdf,image/*" hidden>
+            <div class="upload-area">Clique ici pour charger ton CV</div>
+        </label>
+
+        <div id="result"></div>
+    </section>
+
+    <!-- SECTION 3 — TEMPLATES ANIMÉS -->
+    <section id="templates" class="section">
+        <h2>Templates de CV</h2>
+        <p>Modèles modernes adaptés au marché québécois.</p>
+
+        <div class="cv-animation-container">
+            <div class="cv-slider">
+                <img src="nathan-cv1.png" alt="CV modèle 1">
+                <img src="nathan-cv2.png" alt="CV modèle 2">
+                <img src="nathan-cv3.png" alt="CV modèle 3">
+            </div>
+        </div>
+
+        <p class="cv-legend">Défilement automatique des modèles.</p>
+
+        <a href="templates/template1.html" target="_blank">
+        Voir Template 1
+        </a>
+        <a href="templates/template2.html" target="_blank">
+        Voir Template 2
+        </a>
+    </section>
+
+    <!-- SECTION 4 — CONSEILS IA -->
+    <section id="conseils" class="section">
+        <h2>Conseils personnalisés</h2>
+        <p>Explique ton profil et l’IA te guide vers les meilleures opportunités.</p>
+
+        <textarea id="profil" placeholder="Décris ton profil..."></textarea>
+        <button id="analyserProfil">Analyser</button>
+
+        <div id="profilResult"></div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>© 2025 IA CV Expert — Tous droits réservés.</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
