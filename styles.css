@@ -309,6 +309,47 @@ nav .btn-signup:hover {
     padding-right: 100px;    /* ajuste la position sous "Créer un compte" */
 }
 
+/* SECTION TEMPLATES SUR LA PAGE D'ACCUEIL */
+.templates-page {
+    padding: 80px 60px;
+    background: #f6f9f7;
+}
+
+.templates-title {
+    text-align: center;
+    font-size: 34px;
+    color: #0b3d2e;
+    margin-bottom: 60px;
+}
+
+/* Grille des templates */
+.templates-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 40px;
+    max-width: 1400px;
+    margin: auto;
+}
+
+/* Carte */
+.template-card {
+    background: white;
+    border-radius: 18px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.template-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 45px rgba(0,0,0,0.18);
+}
+
+.template-card img {
+    width: 100%;
+    border-radius: 12px;
+}
+
 .btn-login:hover {
     background-color: #0b3d2e;
     color: #fff;
@@ -319,6 +360,7 @@ nav .btn-signup:hover {
         flex-direction: column;
     }
 }
+
 
 
 
