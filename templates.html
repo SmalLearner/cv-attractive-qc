@@ -3,118 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <title>Templates | IA CV Expert</title>
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            background: #f4f7f4;
-        }
-
-        h2 {
-            text-align: center;
-            margin-top: 40px;
-            color: #0b3d2e;
-            font-size: 32px;
-        }
-
-        .grid {
-            max-width: 1200px;
-            margin: 40px auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 25px;
-            padding: 20px;
-        }
-
-        .template-card {
-            background: #ffffff;
-            border-radius: 12px;
-            padding: 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            transition: 0.2s;
-        }
-
-        .template-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .template-card img {
-            width: 100%;
-            border-radius: 10px;
-        }
-
-        .choose-btn {
-            width: 100%;
-            padding: 10px;
-            background: #0b3d2e;
-            border: none;
-            color: #fff;
-            font-size: 16px;
-            border-radius: 8px;
-            margin-top: 15px;
-            cursor: pointer;
-        }
-
-        .choose-btn:hover {
-            opacity: 0.9;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
-<h2>Choisissez un modèle de CV</h2>
+<header class="header">
+    <h1 class="logo">IA CV Expert</h1>
+    <nav class="nav">
+        <a href="index.html">Accueil</a>
+        <a href="login.html" class="btn-login">Connexion</a>
+        <a href="signup.html" class="btn-signup">Créer un compte</a>
+    </nav>
+</header>
 
-<div class="grid">
+<section class="templates-wrapper">
+    <div class="templates-container">
 
-    <!-- TEMPLATE 1 -->
-    <div class="template-card">
-        <img src="images/template1.png" alt="Template 1">
-        <button class="choose-btn" onclick="selectTemplate('1')">Choisir ce modèle</button>
+        <h2>Choisissez votre modèle de CV</h2>
+        <p class="templates-subtext">
+            Des modèles modernes, professionnels et adaptés au marché québécois.
+        </p>
+
+        <div class="templates-grid">
+            <div class="template-card">
+                <img src="nathan-cv1.png" alt="Template 1">
+                <button>Utiliser ce modèle</button>
+            </div>
+
+            <div class="template-card">
+                <img src="nathan-cv2.png" alt="Template 2">
+                <button>Utiliser ce modèle</button>
+            </div>
+
+            <div class="template-card">
+                <img src="nathan-cv3.png" alt="Template 3">
+                <button>Utiliser ce modèle</button>
+            </div>
+        </div>
+
     </div>
-
-    <!-- TEMPLATE 2 -->
-    <div class="template-card">
-        <img src="images/template2.png" alt="Template 2">
-        <button class="choose-btn" onclick="selectTemplate('2')">Choisir ce modèle</button>
-    </div>
-
-    <!-- TEMPLATE 3 -->
-    <div class="template-card">
-        <img src="images/template3.png" alt="Template 3">
-        <button class="choose-btn" onclick="selectTemplate('3')">Choisir ce modèle</button>
-    </div>
-
-    <!-- TEMPLATE 4 -->
-    <div class="template-card">
-        <img src="images/template4.png" alt="Template 4">
-        <button class="choose-btn" onclick="selectTemplate('4')">Choisir ce modèle</button>
-    </div>
-
-</div>
-
-<script>
-    const supabaseClient = supabase.createClient(
-        "https://dwglkvlhkfxnxaykibok.supabase.co",
-        "sb_publishable_If-9PzCJImCraAsv2me2Uw_fAFL4rB-"
-    );
-
-    async function selectTemplate(id) {
-        const { data } = await supabaseClient.auth.getSession();
-
-        // S'il n'est pas connecté → on l'envoie se connecter
-        if (!data.session) {
-            window.location.href = "login.html";
-            return;
-        }
-
-        // S'il est connecté → il va vers la page creation
-        window.location.href = "creation.html?template=" + id;
-    }
-</script>
+</section>
 
 </body>
 </html>
