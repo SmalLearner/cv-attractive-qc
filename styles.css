@@ -241,8 +241,7 @@ textarea {
     overflow: hidden;
     border-radius: 16px;
     box-shadow: 0 6px 35px rgba(0,0,0,0.12);
-    margin: auto;
-    margin-left: 60px; /* décalage vers la droite */
+    margin: 0;
 }
 
 .hero-slider {
@@ -267,14 +266,9 @@ textarea {
     text-align: center;
 }
 
-.hero-dot {
-    display: inline-block;
-    width: 11px;
-    height: 11px;
-    background: #c4c4c4;
-    border-radius: 50%;
-    margin: 0 6px;
-    cursor: pointer;
+.hero-dots {
+    margin-top: 15px;
+    align-self: flex-end; /* juste sous le cadre */
 }
 
 .hero-dot.active {
@@ -307,6 +301,14 @@ nav .btn-signup:hover {
     font-weight: 600;
 }
 
+.hero-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;   /* pousse le cadre à droite */
+    justify-content: center;
+    padding-right: 100px;    /* ajuste la position sous "Créer un compte" */
+}
+
 .btn-login:hover {
     background-color: #0b3d2e;
     color: #fff;
@@ -317,6 +319,7 @@ nav .btn-signup:hover {
         flex-direction: column;
     }
 }
+
 
 
 
