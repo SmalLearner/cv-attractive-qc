@@ -170,6 +170,16 @@ textarea {
     background: #f6f9f7;
 }
 
+/* --- HERO LEFT : 1/3 VERT FONCÉ --- */
+.hero-left {
+    background-color: #1f4a33; /* vert foncé */
+    color: white;
+    padding: 80px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .hero-left h1 {
     font-size: 42px;
     color: #0f3d2e;
@@ -303,6 +313,7 @@ nav .btn-signup:hover {
         flex-direction: column;
     }
 }
+
 
 
 
