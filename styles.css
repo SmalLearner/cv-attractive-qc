@@ -163,7 +163,7 @@ textarea {
 /* --- HERO MODERNE --- */
 .hero-modern {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 35% 65%; /* 1/3 - 2/3 */
     align-items: center;
     padding: 80px 5%;
     gap: 40px;
@@ -228,6 +228,7 @@ textarea {
     border-radius: 16px;
     box-shadow: 0 6px 35px rgba(0,0,0,0.12);
     margin: auto;
+    margin-left: 60px; /* décalage vers la droite */
 }
 
 .hero-slider {
@@ -302,5 +303,6 @@ nav .btn-signup:hover {
         flex-direction: column;
     }
 }
+
 
 
