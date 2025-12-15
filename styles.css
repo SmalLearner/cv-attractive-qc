@@ -163,7 +163,7 @@ textarea {
 /* --- HERO MODERNE --- */
 .hero-modern {
     display: grid;
-    grid-template-columns: 30% 1fr 380px;  /* 3 colonnes : gauche / texte / slider */
+    grid-template-columns: 35% 65%;  /* 3 colonnes : gauche / texte / slider */
     min-height: 480px;
     background: linear-gradient(
         to right,
@@ -355,7 +355,7 @@ nav .btn-signup:hover {
 
 .section-eval {
     display: grid;
-    grid-template-columns: 30% 1fr 380px;  /* 3 colonnes : gauche / texte / slider */;
+    grid-template-columns: 35% 65%;
     min-height: 450px;
     background: linear-gradient(
         to right,
@@ -447,6 +447,7 @@ nav .btn-signup:hover {
         flex-direction: column;
     }
 }
+
 
 
 
