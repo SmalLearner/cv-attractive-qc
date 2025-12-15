@@ -355,11 +355,46 @@ nav .btn-signup:hover {
     color: #fff;
 }
 
+/* COLONNE CENTRALE */
+.hero-middle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 40px;
+}
+
+/* Liste avec étoiles */
+.hero-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.hero-list li {
+    position: relative;
+    padding-left: 28px;
+    margin-bottom: 16px;
+    font-size: 18px;
+    line-height: 1.5;
+    color: #1f4a33; /* texte foncé */
+}
+
+/* Étoiles vert clair */
+.hero-list li::before {
+    content: "★";
+    position: absolute;
+    left: 0;
+    top: 2px;
+    color: #6fd3a6; /* vert clair */
+    font-size: 18px;
+}
+
 @media (max-width: 900px) {
     .hero-split {
         flex-direction: column;
     }
 }
+
 
 
 
