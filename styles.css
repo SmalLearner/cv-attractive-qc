@@ -162,7 +162,7 @@ textarea {
 }
 .hero-modern {
     display: grid;
-    grid-template-columns: 30% 70%;  /* ← Réduit la zone gauche */
+    grid-template-columns: 35% 65%; /* ← Réduit la zone gauche */
     min-height: 600px;
     background: linear-gradient(
         to right,
@@ -393,3 +393,4 @@ nav .btn-signup:hover {
         flex-direction: column;
     }
 }
+
