@@ -353,11 +353,84 @@ nav .btn-signup:hover {
     font-size: 18px;
 }
 
+.section-eval {
+    display: grid;
+    grid-template-columns: 35% 65%;
+    min-height: 450px;
+    background: linear-gradient(
+        to right,
+        #1f4a33 0%,
+        #1f4a33 35%,
+        #f6f9f7 35%,
+        #f6f9f7 100%
+    );
+    margin-top: 60px;
+}
+
+/* LEFT PART - VERT FONCÉ */
+.eval-left {
+    background-color: #1f4a33;
+    color: white;
+    padding: 80px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.eval-left h1 {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.eval-btn,
+.adjust-btn {
+    padding: 14px 26px;
+    background: #163726;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 15px;
+    width: fit-content;
+}
+
+.adjust-btn {
+    background: white;
+    color: #1f4a33;
+    border: 2px solid white;
+}
+
+.adjust-btn:hover {
+    background: #e6e6e6;
+}
+
+/* RIGHT PART BLANCHE */
+.eval-right {
+    padding: 60px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.eval-right h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.eval-right p {
+    font-size: 18px;
+    margin-bottom: 25px;
+}
+
 @media (max-width: 900px) {
     .hero-split {
         flex-direction: column;
     }
 }
+
 
 
 
