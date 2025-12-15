@@ -58,16 +58,25 @@
     </section>
 
     <!-- SECTION 2 — UPLOAD CV -->
-    <section id="upload" class="section">
-        <h2>Évalue ton CV automatiquement</h2>
-        <p>Dépose ton CV. L’IA analyse la structure, le contenu et te donne un score + recommandations.</p>
-
-        <label class="upload-box">
-            <input type="file" id="cvFile" accept="application/pdf,image/*" hidden>
-            <div class="upload-area">Clique ici pour charger ton CV</div>
-        </label>
-
-        <div id="result"></div>
+    <section class="section-eval">
+        <div class="eval-left">
+            <h1>Analyse ton CV avec l’IA</h1>
+    
+            <button class="eval-btn">Évaluer mon CV</button>
+            <button class="adjust-btn">Ajuster mon CV</button>
+        </div>
+    
+        <div class="eval-right">
+            <h2>Évalue ton CV automatiquement</h2>
+            <p>L’IA analyse la structure, le contenu et te donne un score + des recommandations.</p>
+    
+            <label class="upload-box">
+                <input type="file" id="cvFile" accept="application/pdf,image/*" hidden>
+                <div class="upload-area">Clique ici pour charger ton CV</div>
+            </label>
+    
+            <div id="result"></div>
+        </div>
     </section>
 
     <!-- SECTION — TEMPLATES (GRILLE COMME LA CAPTURE) -->
@@ -116,3 +125,4 @@
     <script src="script.js"></script>
 </body>
 </html>
+
