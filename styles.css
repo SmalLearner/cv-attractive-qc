@@ -359,8 +359,9 @@ nav .btn-signup:hover {
 .hero-middle {
     display: flex;
     align-items: center;
-    justify-content: center;
-    padding: 0 40px;
+    justify-content: flex-start; /* ← au lieu de center */
+    padding-left: 40px;          /* ← contrôle le décalage à gauche */
+    padding-right: 20px;
 }
 
 /* Liste avec étoiles */
@@ -394,6 +395,7 @@ nav .btn-signup:hover {
         flex-direction: column;
     }
 }
+
 
 
 
