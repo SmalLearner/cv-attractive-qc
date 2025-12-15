@@ -236,41 +236,7 @@ textarea {
     border-radius: 12px;
     box-shadow: 0 6px 35px rgba(0,0,0,0.1);
 }
-.hero-slider-container {
-    width: 350px;
-    height: 480px;
-}
 
-.hero-slider {
-    display: flex;
-    transition: transform 0.7s ease;
-}
-
-.hero-slide-link {
-    display: block;
-    min-width: 100%;
-}
-
-.hero-slide {
-    width: 100%;
-    height: auto;
-    border-radius: 16px;
-}
-
-/* Dots (pagination) */
-.hero-dots {
-    margin-top: 15px;
-    text-align: center;
-}
-
-.hero-dots {
-    margin-top: 15px;
-    align-self: flex-end; /* juste sous le cadre */
-}
-
-.hero-dot.active {
-    background: #1f4a33;
-}
 
 
 nav .btn-signup {
@@ -392,6 +358,7 @@ nav .btn-signup:hover {
         flex-direction: column;
     }
 }
+
 
 
 
