@@ -425,11 +425,29 @@ nav .btn-signup:hover {
     margin-bottom: 25px;
 }
 
+/* Ajustement pour afficher les templates dans la partie droite */
+.eval-right {
+    padding: 60px 40px;
+}
+
+.eval-right .templates-title {
+    text-align: left;
+    margin-bottom: 40px;
+    color: #0b3d2e;
+    font-size: 32px;
+}
+
+.eval-right .templates-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
 @media (max-width: 900px) {
     .hero-split {
         flex-direction: column;
     }
 }
+
 
 
 
