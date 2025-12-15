@@ -388,9 +388,43 @@ nav .btn-signup:hover {
     font-size: 18px;
 }
 
+/* SLIDER SOUS LE HEADER */
+.top-slider-wrapper {
+    width: 480px;              /* Largeur du cadre */
+    height: 260px;             /* Hauteur du cadre */
+    overflow: hidden;
+    border-radius: 14px;
+    box-shadow: 0 6px 25px rgba(0,0,0,0.12);
+    position: absolute;
+    top: 95px;                 /* Pour l’aligner sous "Créer un compte" */
+    right: 40px;               /* Pour le pousser à droite */
+    background: white;
+    z-index: 5;
+}
+
+.top-slider {
+    display: flex;
+    width: calc(480px * 3);
+    animation: topSlide 12s infinite ease-in-out;
+}
+
+.top-slider img {
+    width: 480px;
+    height: 260px;
+    object-fit: cover;
+}
+
+@keyframes topSlide {
+    0% { transform: translateX(0); }
+    33% { transform: translateX(-480px); }
+    66% { transform: translateX(-960px); }
+    100% { transform: translateX(0); }
+}
+
 @media (max-width: 900px) {
     .hero-split {
         flex-direction: column;
     }
 }
+
 
