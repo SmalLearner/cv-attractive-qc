@@ -160,35 +160,33 @@ textarea {
     color: #1f4a33;
     text-decoration: underline;
 }
-/* --- HERO MODERNE --- */
 .hero-modern {
     display: grid;
-    grid-template-columns: 35% 65%; /* 1/3 - 2/3 */
-    min-height: 650px;
+    grid-template-columns: 30% 70%;  /* ← Réduit la zone gauche */
+    min-height: 600px;
     background: linear-gradient(
         to right,
         #1f4a33 0%,
-        #1f4a33 35%,
-        #f6f9f7 35%,
+        #1f4a33 30%,   /* ← aligné avec la nouvelle largeur */
+        #f6f9f7 30%,
         #f6f9f7 100%
     );
+    padding-right: 40px; /* ajoute de l’air à droite */
 }
 
 /* --- HERO LEFT : 1/3 VERT FONCÉ --- */
 .hero-left {
-    background-color: #1f4a33; /* vert foncé */
+    background-color: #1f4a33;
     color: white;
-    padding: 80px 40px;
+    padding: 70px 35px;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
 .hero-left h1 {
-    font-size: 42px;
-    color: white; /* ← juste ça */
-    margin-bottom: 15px;
-    line-height: 1.2;
+    font-size: 38px; /* légèrement réduit */
+    margin-bottom: 18px;
 }
 
 .hero-subtext {
@@ -235,13 +233,13 @@ textarea {
     border-radius: 12px;
     box-shadow: 0 6px 35px rgba(0,0,0,0.1);
 }
+/* Slider réduit légèrement */
 .hero-slider-container {
-    width: 380px;
-    height: 500px;
+    width: 340px;            /* ← réduit au lieu de 380px */
+    height: 460px;           /* ← réduit légèrement */
     overflow: hidden;
     border-radius: 16px;
     box-shadow: 0 6px 35px rgba(0,0,0,0.12);
-    margin: 0;
 }
 
 .hero-slider {
@@ -304,9 +302,9 @@ nav .btn-signup:hover {
 .hero-right {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;   /* pousse le cadre à droite */
+    align-items: flex-end;    /* ← cadre poussé à droite */
     justify-content: center;
-    padding-right: 100px;    /* ajuste la position sous "Créer un compte" */
+    padding-right: 60px;      /* ← ajuste la distance */
 }
 
 /* SECTION TEMPLATES SUR LA PAGE D'ACCUEIL */
@@ -395,13 +393,3 @@ nav .btn-signup:hover {
         flex-direction: column;
     }
 }
-
-
-
-
-
-
-
-
-
-
