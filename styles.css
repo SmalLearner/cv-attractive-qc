@@ -107,12 +107,12 @@ body {
 
 /* CV SLIDER */
 .cv-animation-container {
-    width: 300px;
-    height: 400px;
-    margin-top: 20px;
+    width: 100%;
+    height: 100%;              /* ⭐ clé */
+    max-width: 380px;          /* garde un beau cadre */
     overflow: hidden;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    border-radius: 16px;
+    box-shadow: 0 6px 35px rgba(0,0,0,0.12);
 }
 
 .cv-slider {
@@ -163,8 +163,8 @@ textarea {
 /* --- HERO MODERNE --- */
 .hero-modern {
     display: grid;
-    grid-template-columns: 30% 1fr 380px;  /* 3 colonnes : gauche / texte / slider */
-    min-height: 480px;
+    grid-template-columns: 30% 1fr 30%;  /* 3 colonnes : gauche / texte / slider */
+    min-height: 520px;
     padding-top: 40px; /* espace sous Connexion / Créer un compte */
 }
 
@@ -477,3 +477,4 @@ nav .btn-signup:hover {
         flex-direction: column;
     }
 }
+
