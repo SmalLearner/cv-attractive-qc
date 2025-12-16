@@ -355,15 +355,8 @@ nav .btn-signup:hover {
 
 .section-eval {
     display: grid;
-    grid-template-columns: 35% 65%;
-    min-height: 450px;
-    background: linear-gradient(
-        to right,
-        #1f4a33 0%,
-        #1f4a33 35%,
-        #f6f9f7 35%,
-        #f6f9f7 100%
-    );
+    grid-template-columns: 30% 1fr 380px; /* IDENTIQUE au hero */
+    min-height: 480px;
     margin-top: 60px;
 }
 
@@ -447,5 +440,6 @@ nav .btn-signup:hover {
         flex-direction: column;
     }
 }
+
 
 
