@@ -517,6 +517,10 @@ nav .btn-signup:hover {
   background: #7edfb2 !important; /* 💚 vert clair */
   box-shadow: 0 10px 30px rgba(143, 211, 255, 0.35) !important;
 }
+.page-2-marketing .point-item {
+  margin-bottom: 12px !important;
+  padding: 21px 25px !important;
+}
 
 /* ===== RESPONSIVE MOBILE ===== */
 @media (max-width: 900px) {
@@ -524,6 +528,7 @@ nav .btn-signup:hover {
     width: 100%;
   }
 }
+
 
 
 
