@@ -513,6 +513,10 @@ nav .btn-signup:hover {
   font-weight: 700;
   font-size: 16px;
 }
+.page-2-marketing .point-item {
+  background: #8fd3ff !important; /* 💙 bleu clair */
+  box-shadow: 0 10px 30px rgba(143, 211, 255, 0.35) !important;
+}
 
 /* ===== RESPONSIVE MOBILE ===== */
 @media (max-width: 900px) {
@@ -520,6 +524,7 @@ nav .btn-signup:hover {
     width: 100%;
   }
 }
+
 
 
 
