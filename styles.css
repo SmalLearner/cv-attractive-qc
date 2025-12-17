@@ -503,27 +503,22 @@ nav .btn-signup:hover {
   font-size: 16px;
 }
 
-.point-item p {
-  margin: 0;
-  font-size: 15px;
-  line-height: 1.6;
-  color: #1e3a5f;
-}
 .point-item {
-  width: 66.666%;                 /* garde 2/3 de la largeur */
-  background: #2f2f2f;            /* gris foncé élégant */
-  color: #f1f1f1;                 /* texte clair */
+  width: 66.666%;                 /* 2/3 de la largeur actuelle */
+  background: #6b5cff;            /* 💜 mauve clair */
+  color: #ffffff;
+  
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+
+  border-radius: 16px;
+  padding: 20px 24px;
+  margin-bottom: 18px;
+
+  box-shadow: 0 10px 30px rgba(107, 92, 255, 0.35);
 }
-.point-item p {
-  color: #f1f1f1;
-}
-.point-index {
-  background: #f3c97a;            /* jaune doux */
-  color: #1e3a5f;                 /* bleu foncé */
-}
-.point-item {
-  box-shadow: 0 8px 24px rgba(0,0,0,0.35);
-}
+
 @media (max-width: 900px) {
     .hero-split {
         flex-direction: column;
@@ -534,6 +529,7 @@ nav .btn-signup:hover {
         width: 100%;          /* pleine largeur sur mobile */
     }
 }
+
 
 
 
