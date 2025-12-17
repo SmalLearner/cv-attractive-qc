@@ -470,44 +470,16 @@ nav .btn-signup:hover {
 .page-2-marketing {
   width: 100%;
   max-width: 820px;
-}
-
-/* blocs */
-.point-item {
   display: flex;
-  align-items: flex-start;
-  gap: 16px;
-
-  background: #ffffff;
-  border-radius: 14px;
-  padding: 18px 22px;
-  margin-bottom: 16px;
-
-  box-shadow: 0 4px 14px rgba(0,0,0,0.06);
-}
-
-/* numéros */
-.point-index {
-  flex-shrink: 0;
-  width: 36px;
-  height: 36px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 50%;
-  background: #f3c97a;   /* même style que la capture */
-  color: #1e3a5f;
-  font-weight: 700;
-  font-size: 16px;
+  flex-direction: column;
+  align-items: center; /* centre les cartes sous le titre */
 }
 
 .point-item {
-  width: 66.666%;                 /* 2/3 de la largeur actuelle */
-  background: #6b5cff;            /* 💜 mauve clair */
+  width: 66.666%;                 /* garde 2/3 de la largeur */
+  background: #6b5cff;            /* mauve clair */
   color: #ffffff;
-  
+
   display: flex;
   align-items: flex-start;
   gap: 16px;
@@ -519,16 +491,36 @@ nav .btn-signup:hover {
   box-shadow: 0 10px 30px rgba(107, 92, 255, 0.35);
 }
 
-@media (max-width: 900px) {
-    .hero-split {
-        flex-direction: column;
-    }
-
-    /* Cartes marketing page 2 */
-    .point-item {
-        width: 100%;          /* pleine largeur sur mobile */
-    }
+.point-item p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #ffffff;
 }
+
+.point-index {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  background: #f3c97a;   /* jaune doux */
+  color: #1e3a5f;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+/* ===== RESPONSIVE MOBILE ===== */
+@media (max-width: 900px) {
+  .point-item {
+    width: 100%;
+  }
+}
+
 
 
 
