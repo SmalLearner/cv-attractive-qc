@@ -266,26 +266,6 @@ nav .btn-signup:hover {
 }
 
 /* SECTION TEMPLATES SUR LA PAGE D'ACCUEIL */
-.templates-page {
-    padding: 80px 60px;
-    background: #f6f9f7;
-}
-
-.templates-title {
-    text-align: center;
-    font-size: 34px;
-    color: #0b3d2e;
-    margin-bottom: 60px;
-}
-
-/* Grille des templates */
-.templates-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 40px;
-    max-width: 1400px;
-    margin: auto;
-}
 
 /* Carte */
 .template-card {
@@ -535,5 +515,6 @@ nav .btn-signup:hover {
         flex-direction: column;
     }
 }
+
 
 
