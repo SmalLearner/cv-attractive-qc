@@ -537,6 +537,7 @@ nav .btn-signup:hover {
   background: #cfeeff;        /* 💙 bleu clair */
   border-color: #6fb6e6;      /* bordure assortie (optionnel) */
   text-align: left;
+  margin-top: 40px; /* augmente ou diminue selon ton goût */
 }
 
 /* ===== RESPONSIVE MOBILE ===== */
@@ -545,6 +546,7 @@ nav .btn-signup:hover {
     width: 100%;
   }
 }
+
 
 
 
