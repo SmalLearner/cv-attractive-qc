@@ -555,12 +555,28 @@ nav .btn-signup:hover {
   color: #000000 !important;
 }
 
+/* ===== FUSION DES DEUX BANDES VERT FONCÉ ===== */
+
+/* Supprimer l’espace sous la première bande */
+.hero-modern,
+.hero-split {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* Supprimer l’espace au-dessus de la deuxième bande */
+.section-eval {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
 /* ===== RESPONSIVE MOBILE ===== */
 @media (max-width: 900px) {
   .point-item {
     width: 100%;
   }
 }
+
 
 
 
