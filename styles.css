@@ -540,12 +540,28 @@ nav .btn-signup:hover {
   margin-top: 40px; /* augmente ou diminue selon ton goût */
 }
 
+.page-2-marketing .point-item {
+  background: #f2f2f2 !important;   /* gris clair */
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Texte des cartes */
+.page-2-marketing .point-item p {
+  color: #000000 !important;        /* texte noir */
+}
+
+/* (Optionnel) si jamais le texte venait d’un autre élément */
+.page-2-marketing .point-item {
+  color: #000000 !important;
+}
+
 /* ===== RESPONSIVE MOBILE ===== */
 @media (max-width: 900px) {
   .point-item {
     width: 100%;
   }
 }
+
 
 
 
