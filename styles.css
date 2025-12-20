@@ -570,12 +570,26 @@ nav .btn-signup:hover {
   padding-top: 0 !important;
 }
 
+/* ===== CARTES : BORDURE BLEU CLAIR ===== */
+
+.page-2-marketing .point-item {
+  background: #ffffff !important;          /* fond blanc */
+  border: 2px solid #8fd3ff !important;    /* 💙 bleu clair */
+  box-shadow: 0 6px 20px rgba(0,0,0,0.05) !important;
+}
+
+/* Texte noir (sécurité) */
+.page-2-marketing .point-item p {
+  color: #000000 !important;
+}
+
 /* ===== RESPONSIVE MOBILE ===== */
 @media (max-width: 900px) {
   .point-item {
     width: 100%;
   }
 }
+
 
 
 
