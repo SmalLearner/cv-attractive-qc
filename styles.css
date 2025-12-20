@@ -603,12 +603,73 @@ nav .btn-signup:hover {
   justify-content: center;
 }
 
-/* ===== RESPONSIVE MOBILE ===== */
+/* ========================= */
+/* 📱 CORRECTION MOBILE SITE */
+/* ========================= */
+
 @media (max-width: 900px) {
-  .point-item {
+
+  /* Empiler toutes les grandes sections */
+  .hero-modern,
+  .hero-split,
+  .section-eval {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Colonnes → pleine largeur */
+  .hero-left,
+  .hero-middle,
+  .hero-right,
+  .eval-left,
+  .eval-right,
+  .hero-marketing {
     width: 100%;
+    max-width: 100%;
+    padding: 24px 20px;
+  }
+
+  /* Textes principaux */
+  h1 {
+    font-size: 28px;
+    line-height: 1.2;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
+
+  p, li {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* Boutons = pleine largeur */
+  .cta-btn,
+  .hero-button,
+  .hero-button-outline,
+  .eval-btn,
+  .adjust-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Images / previews */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Supprimer les débordements horizontaux */
+  body {
+    overflow-x: hidden;
   }
 }
+
 
 
 
