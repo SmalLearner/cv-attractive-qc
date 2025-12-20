@@ -583,12 +583,33 @@ nav .btn-signup:hover {
   color: #000000 !important;
 }
 
+/* On masque le chiffre */
+.page-2-marketing .point-index {
+  background: transparent !important;
+  color: transparent !important;
+  width: 18px;
+  height: 18px;
+}
+
+/* On ajoute une croix rouge */
+.page-2-marketing .point-index::before {
+  content: "✖";
+  color: #e53935;           /* rouge */
+  font-size: 16px;
+  font-weight: bold;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 /* ===== RESPONSIVE MOBILE ===== */
 @media (max-width: 900px) {
   .point-item {
     width: 100%;
   }
 }
+
 
 
 
