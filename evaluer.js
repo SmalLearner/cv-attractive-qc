@@ -1,3 +1,4 @@
+alert("evaluer.js est bien connecté");
 const uploadZone = document.getElementById("uploadZone");
 const cvFile = document.getElementById("cvFile");
 const fileChip = document.getElementById("fileChip");
