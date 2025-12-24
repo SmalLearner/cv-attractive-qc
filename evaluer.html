@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Évaluer mon CV – IA CV Expert</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <header class="header">
+    <div class="logo">IA CV Expert</div>
+
+    <button class="hamburger" id="hamburger" aria-label="Menu">☰</button>
+
+    <nav class="nav" id="nav-menu">
+      <a href="index.html">Accueil</a>
+      <a href="evaluer.html" class="active-link">Évaluer mon CV</a>
+      <a href="templates.html">Templates</a>
+      <a href="conseils.html">Conseils</a>
+      <a href="#" class="btn-login">Connexion</a>
+      <a href="#" class="btn-signup">Créer un compte</a>
+    </nav>
+  </header>
+
+  <main class="eval-page">
+
+    <!-- HERO -->
+    <section class="eval-hero">
+      <div class="eval-hero-left">
+        <span class="badge">Normes Québec • ATS</span>
+        <h1>Évalue ton CV <br><span>comme un recruteur au Québec</span></h1>
+        <p>
+          Téléverse ton CV (PDF ou Word). On te donne un score et des recommandations
+          claires, adaptées au marché québécois.
+        </p>
+
+        <div class="trust-row">
+          <div class="trust-item">✔ Lecture rapide (6–10 sec)</div>
+          <div class="trust-item">✔ Compatibilité ATS</div>
+          <div class="trust-item">✔ Conseils actionnables</div>
+        </div>
+      </div>
+
+      <div class="eval-hero-right">
+        <div class="score-preview">
+          <div class="score-ring" id="scoreRing">
+            <div class="score-number" id="scoreNumber">--</div>
+            <div class="score-label">Score</div>
+          </div>
+
+          <div class="score-legend">
+            <div class="legend-row"><span class="dot red"></span> 0–59 : À corriger</div>
+            <div class="legend-row"><span class="dot orange"></span> 60–79 : Bon mais améliorable</div>
+            <div class="legend-row"><span class="dot green"></span> 80–100 : Prêt à envoyer</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- UPLOAD CARD -->
+    <section class="eval-card">
+      <div class="eval-card-head">
+        <h2>Téléverse ton CV</h2>
+        <p>Formats : PDF, DOC, DOCX · Taille max : 5 Mo</p>
+      </div>
+
+      <div class="upload-zone" id="uploadZone">
+        <input type="file" id="cvFile" accept=".pdf,.doc,.docx" hidden />
+        <div class="upload-icon">📄</div>
+        <div class="upload-title">Glisse-dépose ton CV ici</div>
+        <div class="upload-sub">ou clique pour sélectionner un fichier</div>
+
+        <div class="file-chip" id="fileChip" style="display:none;">
+          <span id="fileName">cv.pdf</span>
+          <button class="chip-x" id="removeFile" aria-label="Retirer">✕</button>
+        </div>
+      </div>
+
+      <div class="eval-actions">
+        <button class="btn-primary" id="analyzeBtn" disabled>Analyser mon CV</button>
+        <button class="btn-secondary" id="resetBtn" disabled>Réinitialiser</button>
+      </div>
+
+      <div class="progress-wrap" id="progressWrap" style="display:none;">
+        <div class="progress-text" id="progressText">Analyse en cours…</div>
+        <div class="progress-bar">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESULTS -->
+    <section class="results" id="results" style="display:none;">
+      <div class="results-head">
+        <h2>Résultat de l’évaluation</h2>
+        <p>Conseils adaptés au marché québécois (ATS + lecture recruteur).</p>
+      </div>
+
+      <div class="results-grid">
+        <div class="result-box">
+          <h3>✅ Points forts</h3>
+          <ul id="goodList"></ul>
+        </div>
+
+        <div class="result-box">
+          <h3>⚠️ À améliorer</h3>
+          <ul id="badList"></ul>
+        </div>
+
+        <div class="result-cta">
+          <h3>Prochaine étape</h3>
+          <p>Tu veux corriger ton CV pour atteindre 90%+ ?</p>
+          <div class="cta-row">
+            <a class="btn-primary" href="templates.html">Améliorer mon CV</a>
+            <a class="btn-secondary" href="templates.html">Choisir un template</a>
+          </div>
+          <div class="note">
+            Astuce : les recruteurs au Québec préfèrent une structure simple + résultats mesurables.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      © IA CV Expert — Optimisé pour le marché québécois
+    </footer>
+
+  </main>
+
+  <script src="evaluer.js"></script>
+  <script>
+    // Hamburger
+    const hamburger = document.getElementById("hamburger");
+    const navMenu = document.getElementById("nav-menu");
+    hamburger.addEventListener("click", () => navMenu.classList.toggle("active"));
+  </script>
+</body>
+</html>
