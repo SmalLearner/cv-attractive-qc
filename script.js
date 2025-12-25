@@ -43,3 +43,20 @@ heroDots.forEach((dot, index) => {
     });
 });
 
+const payBtn = document.getElementById("payBtn");
+
+if (payBtn) {
+  payBtn.onclick = () => {
+    localStorage.setItem("paid", "true");
+
+    const pending = localStorage.getItem("pendingDownload");
+    if (pending) {
+      localStorage.removeItem("pendingDownload");
+      window.location.href = pending;
+    } else {
+      window.location.href = "templates.html";
+    }
+  };
+}
+
+
