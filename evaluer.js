@@ -1,3 +1,11 @@
+function requireAuth(nextPage) {
+  const isConnected = localStorage.getItem("connected") === "true";
+  if (!isConnected) {
+    window.location.href = "login.html";
+  } else {
+    window.location.href = nextPage;
+  }
+}
 const uploadZone = document.getElementById("uploadZone");
 const cvFile = document.getElementById("cvFile");
 const fileChip = document.getElementById("fileChip");
