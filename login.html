@@ -101,20 +101,24 @@
     async function login() {
         const email = document.getElementById("email").value;
         const password = document.getElementById("password").value;
-
+    
         const { data, error } = await supabaseClient.auth.signInWithPassword({
             email,
             password
         });
-
+    
         if (error) {
             document.getElementById("message").textContent =
                 "Erreur : " + error.message;
             return;
         }
-
-        // Redirection une fois connecté
+    
+        // 🔐 Activer le verrou du site
+        localStorage.setItem("connected", "true");
+    
+        // Redirection
         window.location.href = "dashboard.html";
+    }
     }
 </script>
 
