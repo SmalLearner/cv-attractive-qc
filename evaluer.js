@@ -1,9 +1,10 @@
-function requireAuth(nextPage) {
-  const isConnected = localStorage.getItem("connected") === "true";
-  if (!isConnected) {
+function requireAuth(targetPage) {
+  const user = localStorage.getItem("user");
+
+  if (!user) {
     window.location.href = "login.html";
   } else {
-    window.location.href = nextPage;
+    window.location.href = targetPage;
   }
 }
 const uploadZone = document.getElementById("uploadZone");
