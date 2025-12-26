@@ -8,6 +8,18 @@ alert("evaluer.js chargé");
   <link rel="stylesheet" href="style.css" />
 </head>
 
+<script>
+function requireAuth(targetPage) {
+  const user = localStorage.getItem("user_logged");
+
+  if (!user) {
+    window.location.href = "login.html";
+  } else {
+    window.location.href = targetPage;
+  }
+}
+</script>
+  
 <body>
 
   <header class="header">
