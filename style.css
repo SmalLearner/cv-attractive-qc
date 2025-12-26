@@ -1004,6 +1004,27 @@ nav .btn-signup:hover {
   .results-grid { grid-template-columns: 1fr; }
 }
 
+.download-section {
+    text-align: center;
+    margin: 50px 0;
+}
+
+.download-btn {
+    background: #0b3d2e;
+    color: white;
+    border: none;
+    padding: 14px 32px;
+    font-size: 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.download-btn:hover {
+    opacity: 0.9;
+}
+
+
 
 
 
