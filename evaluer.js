@@ -1,4 +1,29 @@
 console.log("evaluer.js chargé");
+const uploadZone = document.getElementById("uploadZone");
+const fileInput = document.getElementById("cvFile");
+const fileNameSpan = document.getElementById("fileName");
+const fileChip = document.getElementById("fileChip");
+const removeFileBtn = document.getElementById("removeFile");
+
+// Clic sur la zone → ouvre le sélecteur de fichier
+uploadZone.addEventListener("click", () => {
+  fileInput.click();
+});
+
+// Quand un fichier est choisi → afficher son nom
+fileInput.addEventListener("change", () => {
+  if (fileInput.files.length) {
+    fileNameSpan.textContent = fileInput.files[0].name;
+    fileChip.style.display = "inline-flex";
+  }
+});
+
+// Bouton X → retirer le fichier
+removeFileBtn.addEventListener("click", (e) => {
+  e.stopPropagation();
+  fileInput.value = "";
+  fileChip.style.display = "none";
+});
 
 const analyzeBtn = document.getElementById("analyzeBtn");
 const fileInput = document.getElementById("cvFile");
