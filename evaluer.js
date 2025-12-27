@@ -34,8 +34,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const goodList = document.getElementById("goodList");
   const badList = document.getElementById("badList");
 
-  const improveBtn = document.getElementById("improveBtn");
-  const templateBtn = document.getElementById("templateBtn");
 
   analyzeBtn.addEventListener("click", () => {
     if (!fileInput.files.length) {
@@ -109,8 +107,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   
     resultsSection.style.display = "block";
-    improveBtn.style.display = "inline-block";
-    templateBtn.style.display = "inline-block";
   }
 
 });
