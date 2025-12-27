@@ -26,7 +26,6 @@ removeFileBtn.addEventListener("click", (e) => {
 });
 
 const analyzeBtn = document.getElementById("analyzeBtn");
-const fileInput = document.getElementById("cvFile");
 const progressWrap = document.getElementById("progressWrap");
 const progressFill = document.getElementById("progressFill");
 const progressText = document.getElementById("progressText");
