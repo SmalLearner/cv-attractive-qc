@@ -9,19 +9,17 @@
 
         <script>
         document.getElementById("downloadBtn").addEventListener("click", function () {
-          
           const hasPaid = localStorage.getItem("paid");
-        
           if (!hasPaid) {
             // Pas encore payé → redirection vers paiement
             window.location.href = "pricing.html";
             return;
           }
-        
           // Déjà payé → autoriser le téléchargement
           generatePDF();
         });
         </script>
+        
         body {
             margin: 0;
             padding: 30px;
