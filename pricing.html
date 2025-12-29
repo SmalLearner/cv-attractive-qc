@@ -5,6 +5,16 @@
 <title>Débloquer l'accès | IA CV Expert</title>
 <link rel="stylesheet" href="style.css">
 </head>
+
+<script>
+document.getElementById("payBtn").addEventListener("click", function () {
+  // Simulation de paiement
+  localStorage.setItem("paid", "true");
+  alert("Paiement effectué avec succès ✔");
+  window.location.href = "creation.html";
+});
+</script>
+  
 <body>
 
 <div class="payment-card">
