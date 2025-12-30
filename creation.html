@@ -192,7 +192,15 @@
         </div>
     </div>
 
-    <button id="payBtn">Payer & Télécharger mon CV</button>
+    <div class="pricing-box">
+      <h3>Choisis ton accès</h3>
+    
+      <button class="price-btn" id="oneTimeBtn">4,99 $ — Télécharger ce CV</button>
+      <button class="price-btn" id="monthlyBtn">32,99 $ / mois — Accès Pro</button>
+      <button class="price-btn" id="yearlyBtn">344,99 $ / an — Accès Pro+</button>
+    
+      <button class="price-btn download-btn" onclick="downloadPDF()">Télécharger mon CV</button>
+    </div>
     
     <p class="small-note">Le PDF sera généré à partir de cet aperçu (format A4).</p>
 </div>
@@ -292,37 +300,41 @@
 <script>
 let hasPaid = false;
 
-// Lancer Stripe Checkout
-document.getElementById("payBtn").addEventListener("click", function () {
-    window.location.href = "COLLE_ICI_TON_LIEN_STRIPE";
-});
+const stripeLinks = {
+  oneTime: "https://buy.stripe.com/test_4gM4gz8WYedWgYjaAuds400",
+  monthly: "https://buy.stripe.com/test_fZu5kD1uw9XG8rNeQKds401",
+  yearly: "https://buy.stripe.com/test_aFa14n3CE0n637t23Yds402"
+};
 
-// Vérifier retour paiement
-const urlParams = new URLSearchParams(window.location.search);
-if (urlParams.get("paid") === "true") {
+// Paiement
+document.getElementById("oneTimeBtn").onclick = () => window.location.href = stripeLinks.oneTime;
+document.getElementById("monthlyBtn").onclick = () => window.location.href = stripeLinks.monthly;
+document.getElementById("yearlyBtn").onclick = () => window.location.href = stripeLinks.yearly;
+
+// Détection retour Stripe
+const params = new URLSearchParams(window.location.search);
+if (params.get("paid") === "true") {
     hasPaid = true;
-    alert("Paiement réussi ! Vous pouvez maintenant télécharger votre CV.");
+    alert("Paiement réussi ! Téléchargement débloqué.");
 }
 
-// Bloquer téléchargement sans paiement
+// Sécurité téléchargement
 async function downloadPDF() {
     if (!hasPaid) {
-        alert("Veuillez effectuer le paiement pour télécharger votre CV.");
+        alert("Veuillez choisir une offre pour débloquer le téléchargement.");
         return;
     }
 
     const { jsPDF } = window.jspdf;
-    const cvElement = document.getElementById("cvPreview");
-
-    const canvas = await html2canvas(cvElement, { scale: 2 });
+    const canvas = await html2canvas(document.getElementById("cvPreview"), { scale: 2 });
     const imgData = canvas.toDataURL("image/png");
 
     const pdf = new jsPDF("p", "mm", "a4");
-    const pageWidth = pdf.internal.pageSize.getWidth();
-    const imgHeight = canvas.height * pageWidth / canvas.width;
+    const w = pdf.internal.pageSize.getWidth();
+    const h = canvas.height * w / canvas.width;
 
-    pdf.addImage(imgData, "PNG", 0, 0, pageWidth, imgHeight);
-    pdf.save("cv.pdf");
+    pdf.addImage(imgData, "PNG", 0, 0, w, h);
+    pdf.save("Mon_CV.pdf");
 }
 </script>
 </body>
