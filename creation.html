@@ -4,20 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Création de CV | IA CV Expert</title>
-
     <style>
-
+        
         <script>
-        document.getElementById("downloadBtn").addEventListener("click", function () {
-          const hasPaid = localStorage.getItem("paid");
-          if (!hasPaid) {
-            // Pas encore payé → redirection vers paiement
-            window.location.href = "pricing.html";
-            return;
-          }
-          // Déjà payé → autoriser le téléchargement
-          generatePDF();
-        });
+        const downloadBtn = document.getElementById("downloadBtn");
+        
+        if (downloadBtn) {
+          downloadBtn.addEventListener("click", function () {
+            const hasPaid = localStorage.getItem("paid");
+        
+            if (!hasPaid) {
+              window.location.href = "pricing.html";
+              return;
+            }
+        
+            // Déjà payé → autoriser le téléchargement
+            generatePDF();
+          });
+        }
         </script>
         
         body {
@@ -206,7 +210,7 @@
         </div>
     </div>
 
-    <button id="downloadCVBtn" class="download-btn">
+    <button id="downloadBtn" class="download-btn">
       Télécharger mon CV
     </button>
     <p class="small-note">Le PDF sera généré à partir de cet aperçu (format A4).</p>
