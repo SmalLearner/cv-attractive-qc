@@ -192,7 +192,7 @@
         </div>
     </div>
 
-    <button onclick="downloadPDF()">Télécharger mon CV</button>
+    <button id="payBtn">Payer & Télécharger mon CV</button>
     
     <p class="small-note">Le PDF sera généré à partir de cet aperçu (format A4).</p>
 </div>
@@ -288,8 +288,42 @@
         pdf.save("cv.pdf");
     }
 </script>
+
 <script>
-document.getElementById("downloadCV").addEventListener("click", downloadPDF);
+let hasPaid = false;
+
+// Lancer Stripe Checkout
+document.getElementById("payBtn").addEventListener("click", function () {
+    window.location.href = "COLLE_ICI_TON_LIEN_STRIPE";
+});
+
+// Vérifier retour paiement
+const urlParams = new URLSearchParams(window.location.search);
+if (urlParams.get("paid") === "true") {
+    hasPaid = true;
+    alert("Paiement réussi ! Vous pouvez maintenant télécharger votre CV.");
+}
+
+// Bloquer téléchargement sans paiement
+async function downloadPDF() {
+    if (!hasPaid) {
+        alert("Veuillez effectuer le paiement pour télécharger votre CV.");
+        return;
+    }
+
+    const { jsPDF } = window.jspdf;
+    const cvElement = document.getElementById("cvPreview");
+
+    const canvas = await html2canvas(cvElement, { scale: 2 });
+    const imgData = canvas.toDataURL("image/png");
+
+    const pdf = new jsPDF("p", "mm", "a4");
+    const pageWidth = pdf.internal.pageSize.getWidth();
+    const imgHeight = canvas.height * pageWidth / canvas.width;
+
+    pdf.addImage(imgData, "PNG", 0, 0, pageWidth, imgHeight);
+    pdf.save("cv.pdf");
+}
 </script>
 </body>
 </html>
