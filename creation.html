@@ -6,22 +6,22 @@
     <title>Création de CV | IA CV Expert</title>
     <style>
         
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
         <script>
-        const downloadBtn = document.getElementById("downloadBtn");
+        document.getElementById("downloadCV").addEventListener("click", function () {
+            const element = document.getElementById("cv-preview");
         
-        if (downloadBtn) {
-          downloadBtn.addEventListener("click", function () {
-            const hasPaid = localStorage.getItem("paid");
+            const options = {
+                margin: 0,
+                filename: 'Mon_CV.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
         
-            if (!hasPaid) {
-              window.location.href = "pricing.html";
-              return;
-            }
-        
-            // Déjà payé → autoriser le téléchargement
-            generatePDF();
-          });
-        }
+            html2pdf().set(options).from(element).save();
+        });
         </script>
         
         body {
@@ -210,9 +210,8 @@
         </div>
     </div>
 
-    <button id="downloadBtn" class="download-btn">
-      Télécharger mon CV
-    </button>
+    <button id="downloadCV">Télécharger mon CV</button>
+    
     <p class="small-note">Le PDF sera généré à partir de cet aperçu (format A4).</p>
 </div>
 
