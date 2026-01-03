@@ -342,29 +342,6 @@
         `;
     }
 
-    async function downloadPDF() {
-        const { jsPDF } = window.jspdf;
-
-        const cvElement = document.getElementById("cvPreview");
-
-        // Capture l’aperçu en image
-        const canvas = await html2canvas(cvElement, { scale: 2 });
-        const imgData = canvas.toDataURL("image/png");
-
-        // Création PDF format A4
-        const pdf = new jsPDF("p", "mm", "a4");
-        const pageWidth = pdf.internal.pageSize.getWidth();
-        const pageHeight = pdf.internal.pageSize.getHeight();
-
-        const imgWidth = pageWidth;
-        const imgHeight = canvas.height * imgWidth / canvas.width;
-
-        let position = 0;
-        pdf.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight);
-
-        // Si le contenu dépasse, on pourrait gérer plusieurs pages plus tard
-        pdf.save("cv.pdf");
-    }
 </script>
 
 <script>
@@ -376,10 +353,22 @@ const stripeLinks = {
   yearly: "https://buy.stripe.com/test_aFa14n3CE0n637t23Yds402"
 };
 
-// Paiement
-document.getElementById("oneTimeBtn").onclick = () => window.location.href = stripeLinks.oneTime;
-document.getElementById("monthlyBtn").onclick = () => window.location.href = stripeLinks.monthly;
-document.getElementById("yearlyBtn").onclick = () => window.location.href = stripeLinks.yearly;
+function openPaymentModal() {
+  document.getElementById("paymentModal").style.display = "flex";
+}
+
+function closePaymentModal() {
+  document.getElementById("paymentModal").style.display = "none";
+}
+
+function pay(type) {
+  const links = {
+    one: stripeLinks.oneTime,
+    month: stripeLinks.monthly,
+    year: stripeLinks.yearly
+  };
+  window.location.href = links[type];
+}
 
 // Détection retour Stripe
 const params = new URLSearchParams(window.location.search);
