@@ -181,37 +181,28 @@
     <button onclick="updatePreview()">Mettre à jour le CV</button>
 </div>
 
+
 <div class="preview-container">
-  <h2>Aperçu du CV</h2>
+    <h2>Aperçu du CV</h2>
 
-  <div id="cvPreviewWrapper">
-    <div id="cvPreview">
-      <p>Remplis le formulaire à gauche puis clique sur <strong>Mettre à jour le CV</strong>.</p>
-    </div>
-  </div>
-
-  <div class="download-zone">
-    <button class="main-download-btn" onclick="openPaymentModal()">
-      Télécharger mon CV
-    </button>
-  </div>
-
-  <p class="small-note">Le PDF sera généré à partir de cet aperçu (format A4).</p>
-</div>
-
-<!-- MODAL DE PAIEMENT -->
-<div id="paymentModal" class="modal-overlay">
-  <div class="modal-box">
-    <h3>Choisissez votre formule</h3>
-
-    <div class="pricing-options">
-      <button class="pricing-btn" onclick="pay('one')">4,99 $ — Téléchargement unique</button>
-      <button class="pricing-btn" onclick="pay('month')">32,99 $ / mois — Abonnement</button>
-      <button class="pricing-btn" onclick="pay('year')">344,99 $ / an — Abonnement</button>
+    <div id="cvPreviewWrapper">
+        <div id="cvPreview">
+            <!-- Contenu généré par JS -->
+            <p>Remplis le formulaire à gauche puis clique sur <strong>Mettre à jour le CV</strong>.</p>
+        </div>
     </div>
 
-    <button class="close-btn" onclick="closePaymentModal()">Annuler</button>
-  </div>
+    <div class="pricing-box">
+      <h3>Choisis ton accès</h3>
+    
+      <button class="price-btn" id="oneTimeBtn">4,99 $ — Télécharger ce CV</button>
+      <button class="price-btn" id="monthlyBtn">32,99 $ / mois — Accès Pro</button>
+      <button class="price-btn" id="yearlyBtn">344,99 $ / an — Accès Pro+</button>
+    
+      <button class="price-btn download-btn" onclick="downloadPDF()">Télécharger mon CV</button>
+    </div>
+    
+    <p class="small-note">Le PDF sera généré à partir de cet aperçu (format A4).</p>
 </div>
 
 <!-- Librairies pour export PDF -->
