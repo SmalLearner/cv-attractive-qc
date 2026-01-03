@@ -24,12 +24,12 @@
         }
 
         .form-container {
-            width: 40%;
+            width: 50%;
             max-width: 520px;
         }
 
         .preview-container {
-            width: 60%;
+            width: 50%;
         }
 
         h2 {
@@ -195,11 +195,13 @@
     <div class="pricing-box">
       <h3>Choisis ton accès</h3>
     
-      <button class="price-btn" id="oneTimeBtn">4,99 $ — Télécharger ce CV</button>
+      <button class="price-btn" id="oneTimeBtn">4,99 $ —  ce CV</button>
       <button class="price-btn" id="monthlyBtn">32,99 $ / mois — Accès Pro</button>
       <button class="price-btn" id="yearlyBtn">344,99 $ / an — Accès Pro+</button>
     
-      <button class="price-btn download-btn" onclick="downloadPDF()">Télécharger mon CV</button>
+      <button class="main-download-btn" onclick="openPaymentModal()">
+        Télécharger mon CV
+      </button>
     </div>
     
     <p class="small-note">Le PDF sera généré à partir de cet aperçu (format A4).</p>
