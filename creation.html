@@ -140,67 +140,6 @@
             margin-top: 8px;
             color: #555;
         }
-
-       .main-download-btn {
-         width: 100%;
-         padding: 14px;
-         font-size: 18px;
-         background: #0b3d2e;
-         color: white;
-         border: none;
-         border-radius: 8px;
-         cursor: pointer;
-       }
-    
-       .modal-overlay {
-         position: fixed;
-         top: 0;
-         left: 0;
-         width: 100%;
-         height: 100%;
-         background: rgba(0,0,0,0.45);
-         display: none;
-         align-items: center;
-         justify-content: center;
-         z-index: 1000;
-       }
-    
-       .modal-box {
-         background: white;
-         padding: 24px;
-         border-radius: 10px;
-         width: 90%;
-         max-width: 420px;
-         text-align: center;
-       }
-    
-       .pricing-options {
-         display: flex;
-         flex-direction: column;
-         gap: 12px;
-         margin: 20px 0;
-       }
-    
-       .pricing-btn {
-         padding: 12px;
-         border-radius: 6px;
-         border: 1px solid #ccc;
-         background: #f5f5f5;
-         cursor: pointer;
-         font-size: 15px;
-       }
-    
-       .pricing-btn:hover {
-         background: #e9e9e9;
-       }
-    
-       .close-btn {
-         background: transparent;
-         border: none;
-         color: #666;
-         cursor: pointer;
-         font-size: 14px;
-       }
     </style>
 </head>
 
@@ -342,6 +281,29 @@
         `;
     }
 
+    async function downloadPDF() {
+        const { jsPDF } = window.jspdf;
+
+        const cvElement = document.getElementById("cvPreview");
+
+        // Capture l’aperçu en image
+        const canvas = await html2canvas(cvElement, { scale: 2 });
+        const imgData = canvas.toDataURL("image/png");
+
+        // Création PDF format A4
+        const pdf = new jsPDF("p", "mm", "a4");
+        const pageWidth = pdf.internal.pageSize.getWidth();
+        const pageHeight = pdf.internal.pageSize.getHeight();
+
+        const imgWidth = pageWidth;
+        const imgHeight = canvas.height * imgWidth / canvas.width;
+
+        let position = 0;
+        pdf.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight);
+
+        // Si le contenu dépasse, on pourrait gérer plusieurs pages plus tard
+        pdf.save("cv.pdf");
+    }
 </script>
 
 <script>
@@ -353,22 +315,10 @@ const stripeLinks = {
   yearly: "https://buy.stripe.com/test_aFa14n3CE0n637t23Yds402"
 };
 
-function openPaymentModal() {
-  document.getElementById("paymentModal").style.display = "flex";
-}
-
-function closePaymentModal() {
-  document.getElementById("paymentModal").style.display = "none";
-}
-
-function pay(type) {
-  const links = {
-    one: stripeLinks.oneTime,
-    month: stripeLinks.monthly,
-    year: stripeLinks.yearly
-  };
-  window.location.href = links[type];
-}
+// Paiement
+document.getElementById("oneTimeBtn").onclick = () => window.location.href = stripeLinks.oneTime;
+document.getElementById("monthlyBtn").onclick = () => window.location.href = stripeLinks.monthly;
+document.getElementById("yearlyBtn").onclick = () => window.location.href = stripeLinks.yearly;
 
 // Détection retour Stripe
 const params = new URLSearchParams(window.location.search);
