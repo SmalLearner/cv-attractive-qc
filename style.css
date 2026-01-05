@@ -996,6 +996,59 @@ nav .btn-signup:hover {
   font-size: 13px;
 }
 
+.main-download-btn {
+  background: #0b3d2e;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-box {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 24px;
+  width: 90%;
+  max-width: 420px;
+  text-align: center;
+}
+
+.pricing-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.pricing-btn {
+  background: #f2f4f5;
+  border: 1px solid #ccd6da;
+  color: #0b3d2e;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 14px;
+  cursor: pointer;
+}
+
+.pricing-btn:hover {
+  background: #e6ecef;
+}
+
+.close-btn {
+  background: transparent;
+  border: none;
+  color: #666;
+  cursor: pointer;
+}
+
 /* Responsive */
 @media (max-width: 900px) {
   .eval-hero { grid-template-columns: 1fr; width: 94%; }
@@ -1023,6 +1076,7 @@ nav .btn-signup:hover {
 .download-btn:hover {
     opacity: 0.9;
 }
+
 
 
 
