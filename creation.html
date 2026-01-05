@@ -24,12 +24,12 @@
         }
 
         .form-container {
-            width: 50%;
+            width: 40%;
             max-width: 520px;
         }
 
         .preview-container {
-            width: 50%;
+            width: 60%;
         }
 
         h2 {
@@ -192,10 +192,14 @@
         </div>
     </div>
 
-    <div class="download-zone">
-      <button class="main-download-btn" onclick="openPaymentModal()">
-        Télécharger mon CV
-      </button>
+    <div class="pricing-box">
+      <h3>Choisis ton accès</h3>
+    
+      <button class="price-btn" id="oneTimeBtn">4,99 $ — Télécharger ce CV</button>
+      <button class="price-btn" id="monthlyBtn">32,99 $ / mois — Accès Pro</button>
+      <button class="price-btn" id="yearlyBtn">344,99 $ / an — Accès Pro+</button>
+    
+      <button class="price-btn download-btn" onclick="downloadPDF()">Télécharger mon CV</button>
     </div>
     
     <p class="small-note">Le PDF sera généré à partir de cet aperçu (format A4).</p>
@@ -297,49 +301,41 @@
 let hasPaid = false;
 
 const stripeLinks = {
-  one: "https://buy.stripe.com/test_4gM4gz8WYedWgYjaAuds400",
-  month: "https://buy.stripe.com/test_fZu5kD1uw9XG8rNeQKds401",
-  year: "https://buy.stripe.com/test_aFa14n3CE0n637t23Yds402"
+  oneTime: "https://buy.stripe.com/test_4gM4gz8WYedWgYjaAuds400",
+  monthly: "https://buy.stripe.com/test_fZu5kD1uw9XG8rNeQKds401",
+  yearly: "https://buy.stripe.com/test_aFa14n3CE0n637t23Yds402"
 };
 
-function openPaymentModal() {
-  document.getElementById("paymentModal").style.display = "flex";
-}
+// Paiement
+document.getElementById("oneTimeBtn").onclick = () => window.location.href = stripeLinks.oneTime;
+document.getElementById("monthlyBtn").onclick = () => window.location.href = stripeLinks.monthly;
+document.getElementById("yearlyBtn").onclick = () => window.location.href = stripeLinks.yearly;
 
-function closePaymentModal() {
-  document.getElementById("paymentModal").style.display = "none";
-}
-
-function pay(type) {
-  window.location.href = stripeLinks[type];
-}
-
-// Retour Stripe
+// Détection retour Stripe
 const params = new URLSearchParams(window.location.search);
 if (params.get("paid") === "true") {
-  hasPaid = true;
-  alert("Paiement réussi ! Téléchargement débloqué.");
+    hasPaid = true;
+    alert("Paiement réussi ! Téléchargement débloqué.");
 }
-// Afficher les formules seulement après clic
-document.getElementById("showPricingBtn").addEventListener("click", () => {
-    document.getElementById("pricingBox").classList.toggle("hidden");
-});
+
+// Sécurité téléchargement
+async function downloadPDF() {
+    if (!hasPaid) {
+        alert("Veuillez choisir une offre pour débloquer le téléchargement.");
+        return;
+    }
+
+    const { jsPDF } = window.jspdf;
+    const canvas = await html2canvas(document.getElementById("cvPreview"), { scale: 2 });
+    const imgData = canvas.toDataURL("image/png");
+
+    const pdf = new jsPDF("p", "mm", "a4");
+    const w = pdf.internal.pageSize.getWidth();
+    const h = canvas.height * w / canvas.width;
+
+    pdf.addImage(imgData, "PNG", 0, 0, w, h);
+    pdf.save("Mon_CV.pdf");
+}
 </script>
-
-
-<div class="download-zone">
-    <button class="main-download-btn" id="showPricingBtn">
-        Télécharger mon CV
-    </button>
-
-    <div class="pricing-box hidden" id="pricingBox">
-        <h3>Choisis ton accès</h3>
-
-        <button class="price-btn" id="oneTimeBtn">4,99 $ — ce CV</button>
-        <button class="price-btn" id="monthlyBtn">32,99 $ / mois — Accès Pro</button>
-        <button class="price-btn" id="yearlyBtn">344,99 $ / an — Accès Pro+</button>
-    </div>
-</div>
-    
 </body>
 </html>
