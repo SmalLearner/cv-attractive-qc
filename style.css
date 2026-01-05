@@ -1049,6 +1049,29 @@ nav .btn-signup:hover {
   cursor: pointer;
 }
 
+.hidden {
+  display: none;
+}
+
+.download-zone {
+  margin-top: 16px;
+}
+
+.pricing-box {
+  margin-top: 14px;
+}
+
+.price-btn {
+  background: #f1f3f4;
+  border: 1px solid #cfd6d9;
+  color: #0b3d2e;
+  font-weight: 600;
+}
+
+.price-btn:hover {
+  background: #e3e6e8;
+}
+
 /* Responsive */
 @media (max-width: 900px) {
   .eval-hero { grid-template-columns: 1fr; width: 94%; }
@@ -1076,6 +1099,7 @@ nav .btn-signup:hover {
 .download-btn:hover {
     opacity: 0.9;
 }
+
 
 
 
