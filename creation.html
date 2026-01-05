@@ -321,19 +321,21 @@ if (params.get("paid") === "true") {
   alert("Paiement réussi ! Téléchargement débloqué.");
 }
 </script>
-</script>
-<div id="paymentModal" class="modal-overlay">
-  <div class="modal-box">
-    <h3>Choisis ton accès</h3>
 
-    <div class="pricing-options">
-      <button class="pricing-btn" onclick="pay('one')">4,99 $ — ce CV</button>
-      <button class="pricing-btn" onclick="pay('month')">32,99 $ / mois — Accès Pro</button>
-      <button class="pricing-btn" onclick="pay('year')">344,99 $ / an — Accès Pro+</button>
+
+<div class="download-zone">
+    <button class="main-download-btn" id="showPricingBtn">
+        Télécharger mon CV
+    </button>
+
+    <div class="pricing-box hidden" id="pricingBox">
+        <h3>Choisis ton accès</h3>
+
+        <button class="price-btn" id="oneTimeBtn">4,99 $ — ce CV</button>
+        <button class="price-btn" id="monthlyBtn">32,99 $ / mois — Accès Pro</button>
+        <button class="price-btn" id="yearlyBtn">344,99 $ / an — Accès Pro+</button>
     </div>
-
-    <button class="close-btn" onclick="closePaymentModal()">Annuler</button>
-  </div>
 </div>
+    
 </body>
 </html>
