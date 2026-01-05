@@ -320,6 +320,10 @@ if (params.get("paid") === "true") {
   hasPaid = true;
   alert("Paiement réussi ! Téléchargement débloqué.");
 }
+// Afficher les formules seulement après clic
+document.getElementById("showPricingBtn").addEventListener("click", () => {
+    document.getElementById("pricingBox").classList.toggle("hidden");
+});
 </script>
 
 
