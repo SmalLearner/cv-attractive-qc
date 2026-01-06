@@ -1072,6 +1072,54 @@ nav .btn-signup:hover {
   background: #e3e6e8;
 }
 
+.hero-modern {
+  display: grid;
+  grid-template-columns: 0.9fr 1.8fr 1.1fr;
+  min-height: 85vh;
+}
+
+.hero-left {
+  background: #0b3d2e;
+}
+
+.hero-middle {
+  padding: 80px 60px;
+}
+
+.hero-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cv-animation-container {
+  width: 100%;
+  max-width: 420px;
+  height: 560px;
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.18);
+  overflow: hidden;
+}
+
+.cv-slider {
+  display: flex;
+  width: 200%;
+  height: 100%;
+  animation: slideCV 10s infinite ease-in-out;
+}
+
+.cv-frame {
+  width: 50%;
+  height: 100%;
+  border: none;
+}
+
+@keyframes slideCV {
+  0%, 45% { transform: translateX(0); }
+  55%, 100% { transform: translateX(-50%); }
+}
+
 /* Responsive */
 @media (max-width: 900px) {
   .eval-hero { grid-template-columns: 1fr; width: 94%; }
@@ -1099,20 +1147,3 @@ nav .btn-signup:hover {
 .download-btn:hover {
     opacity: 0.9;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
